@@ -1,0 +1,211 @@
+/* أنماط مخصصة لموقع مدرسة تعليم السياقة */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap');
+
+:root {
+  --font-primary: 'Cairo', 'Tajawal', sans-serif;
+  --color-primary: #1e3a8a;
+  --color-primary-dark: #0f172a;
+  --color-accent: #f59e0b;
+  --color-accent-hover: #d97706;
+  --color-success: #10b981;
+  --color-danger: #ef4444;
+}
+
+body {
+  font-family: var(--font-primary);
+  direction: rtl;
+  text-align: right;
+  scroll-behavior: smooth;
+  background-color: #f8fafc;
+  color: #1e293b;
+  overflow-x: hidden;
+}
+
+/* خلفيات وتدرجات لونية مميزة */
+.hero-gradient {
+  background: linear-gradient(135deg, #091224 0%, #172554 50%, #1e3a8a 100%);
+}
+
+.card-gradient {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+}
+
+.accent-gradient {
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+}
+
+/* تأثيرات الزجاج المعتم (Glassmorphism) */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+/* حركات وتأثيرات التحويم */
+.hover-lift {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+}
+
+/* تصميم نبض الواتساب */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+.pulse-animation::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 9999px;
+  background-color: #22c55e;
+  z-index: -1;
+  animation: pulse-ring 2s infinite ease-in-out;
+}
+
+/* رسومات إشارات المرور (Traffic Sign SVG Styles) */
+.sign-triangle {
+  width: 90px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.sign-circle {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-weight: 800;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.sign-square {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* شريط خطوط الطريق (Road markings decorative line) */
+.road-strip {
+  background-image: repeating-linear-gradient(
+    90deg,
+    #e2e8f0,
+    #e2e8f0 30px,
+    transparent 30px,
+    transparent 50px
+  );
+  height: 6px;
+  width: 100%;
+}
+
+.road-strip-dark {
+  background-image: repeating-linear-gradient(
+    90deg,
+    #f59e0b,
+    #f59e0b 25px,
+    transparent 25px,
+    transparent 45px
+  );
+  height: 4px;
+  width: 100%;
+}
+
+/* مظهر مخصص لخيارات الامتحان */
+.quiz-option {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.quiz-option:hover {
+  background-color: #eff6ff;
+  border-color: #3b82f6;
+  transform: translateX(-4px);
+}
+
+.quiz-option.selected {
+  background-color: #dbeafe;
+  border-color: #2563eb;
+  font-weight: 700;
+}
+
+.quiz-option.correct {
+  background-color: #dcfce7 !important;
+  border-color: #16a34a !important;
+  color: #15803d !important;
+}
+
+.quiz-option.wrong {
+  background-color: #fee2e2 !important;
+  border-color: #dc2626 !important;
+  color: #991b1b !important;
+}
+
+/* تحسين الطباعة لقائمة الوثائق */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #dossier-section, #dossier-section * {
+    visibility: visible;
+  }
+  #dossier-section {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* مظهر التمرير الأنيق */
+::-webkit-scrollbar {
+  width: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}

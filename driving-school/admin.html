@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة تحكم صاحب المدرسة | مدرسة تعليم السياقة</title>
+  
+  <!-- الخطوط العربية: Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS عبر CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Cairo', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body { font-family: 'Cairo', sans-serif; }
+    @media print {
+      .no-print { display: none !important; }
+      #printable-table { width: 100% !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen">
+
+  <!-- 1. شاشة تسجيل الدخول وحماية اللوحة (Login Gate) -->
+  <div id="login-gate" class="fixed inset-0 z-50 bg-slate-900 flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl text-center border border-slate-200">
+      
+      <div class="w-16 h-16 bg-blue-100 text-blue-800 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4 shadow-inner">
+        🔐
+      </div>
+      
+      <h2 class="text-2xl font-black text-slate-900 mb-1">لوحة تحكم صاحب المدرسة</h2>
+      <p class="text-xs text-slate-500 mb-6">الرجاء إدخال الرمز السري للوصول لبيانات المدرسة والتسجيلات</p>
+
+      <form id="admin-login-form" class="space-y-4">
+        <div>
+          <label for="admin-pin" class="block text-xs font-bold text-slate-700 mb-2 text-right">رمز الدخول (PIN)</label>
+          <input type="password" id="admin-pin" placeholder="الرمز الافتراضي: 1234" required class="w-full px-4 py-3 bg-slate-50 border border-slate-300 rounded-xl text-center font-mono text-xl tracking-widest focus:ring-2 focus:ring-blue-600 focus:outline-none transition">
+          <span class="text-[11px] text-slate-400 block mt-1.5 text-right">💡 الرمز السري الافتراضي لأول مرة هو: <strong class="text-blue-600 font-mono">1234</strong> (يمكنك تغييره من الإعدادات).</span>
+        </div>
+
+        <div id="login-error" class="hidden text-xs text-red-600 font-bold bg-red-50 p-2.5 rounded-lg border border-red-200">
+          الرمز السري غير صحيح، يرجى المحاولة مجدداً!
+        </div>
+
+        <button type="submit" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-3.5 rounded-xl transition shadow-lg shadow-blue-700/20">
+          تسجيل الدخول إلى اللوحة ➔
+        </button>
+
+        <div class="pt-3 border-t border-slate-100">
+          <a href="index.html" class="text-xs text-slate-500 hover:text-blue-700 transition flex items-center justify-center gap-1">
+            <span>← العودة إلى الموقع الرئيسي للمدرسة</span>
+          </a>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- 2. واجهة لوحة التحكم الرئيسية (Main Dashboard View) -->
+  <div id="dashboard-app" class="hidden">
+    
+    <!-- الشريط العلوي -->
+    <header class="bg-slate-900 text-white shadow-md sticky top-0 z-30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-blue-600 flex items-center justify-center font-black text-white text-lg">
+              🛡️
+            </div>
+            <div>
+              <h1 class="font-black text-base sm:text-lg text-white" id="header-school-name">مدرسة تعليم السياقة</h1>
+              <span class="text-[11px] text-amber-400 font-semibold block">لوحة تحكم الإدارة وصاحب المدرسة</span>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-3">
+            <a href="index.html" target="_blank" class="hidden sm:inline-flex items-center gap-1.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-bold px-3.5 py-2 rounded-xl border border-slate-700 transition">
+              <span>🌐 معاينة الموقع الرئيسي</span>
+            </a>
+            <button id="logout-btn" class="bg-red-600/20 hover:bg-red-600 text-red-300 hover:text-white text-xs font-bold px-3 py-2 rounded-xl border border-red-500/30 transition flex items-center gap-1">
+              <span>خروج</span>
+              <span>🚪</span>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </header>
+
+    <!-- تبويبات التنقل الرئيسية -->
+    <div class="bg-white border-b border-slate-200 sticky top-16 z-20 shadow-sm no-print">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex gap-2 sm:gap-4 overflow-x-auto py-2.5">
+        <button id="tab-btn-tracker" onclick="switchTab('tracker')" class="tab-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-2 bg-blue-700 text-white shadow-sm">
+          <span>👥 تتبع وإدارة التسجيلات</span>
+          <span id="badge-new-count" class="bg-amber-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded-full">0</span>
+        </button>
+        <button id="tab-btn-settings" onclick="switchTab('settings')" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-bold transition flex items-center gap-2 bg-slate-100 text-slate-700 hover:bg-slate-200">
+          <span>⚙️ إعدادات الحسابات والموقع</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- محتوى الصفحة -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+      <!-- ============================================== -->
+      <!-- التبويب 1: تتبع وإدارة التسجيلات (Tracker Tab) -->
+      <!-- ============================================== -->
+      <section id="tab-tracker">
+        
+        <!-- بطاقات الإحصائيات السريعة -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          
+          <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-xs font-bold text-slate-500">إجمالي التسجيلات</span>
+              <span class="text-xl">📋</span>
+            </div>
+            <div class="text-3xl font-black text-slate-900 font-mono" id="stat-total">0</div>
+            <span class="text-[11px] text-slate-400 mt-1 block">كافة الطلبات المسجلة</span>
+          </div>
+
+          <div class="bg-white rounded-2xl p-5 border border-amber-200 bg-amber-50/30 shadow-sm">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-xs font-bold text-amber-800">طلبات جديدة قيد الانتظار</span>
+              <span class="text-xl">⏳</span>
+            </div>
+            <div class="text-3xl font-black text-amber-600 font-mono" id="stat-new">0</div>
+            <span class="text-[11px] text-amber-700/80 mt-1 block">بحاجة للاتصال وتحديد الموعد</span>
+          </div>
+
+          <div class="bg-white rounded-2xl p-5 border border-blue-200 bg-blue-50/30 shadow-sm">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-xs font-bold text-blue-800">تم التواصل والاتصال</span>
+              <span class="text-xl">📞</span>
+            </div>
+            <div class="text-3xl font-black text-blue-600 font-mono" id="stat-contacted">0</div>
+            <span class="text-[11px] text-blue-700/80 mt-1 block">تم التواصل في انتظار الملف</span>
+          </div>
+
+          <div class="bg-white rounded-2xl p-5 border border-emerald-200 bg-emerald-50/30 shadow-sm">
+            <div class="flex justify-between items-center mb-2">
+              <span class="text-xs font-bold text-emerald-800">مسجلون رسمياً</span>
+              <span class="text-xl">✅</span>
+            </div>
+            <div class="text-3xl font-black text-emerald-600 font-mono" id="stat-confirmed">0</div>
+            <span class="text-[11px] text-emerald-700/80 mt-1 block">أودعوا الملف وبدأوا التكوين</span>
+          </div>
+
+        </div>
+
+        <!-- شريط التحكم والبحث والفلترة -->
+        <div class="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200 shadow-sm mb-6 flex flex-col md:flex-row items-center justify-between gap-4 no-print">
+          
+          <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+            <!-- البحث السريع -->
+            <div class="relative flex-1 sm:w-64">
+              <input type="text" id="search-candidate" placeholder="ابحث بالاسم أو رقم الهاتف..." class="w-full pl-3 pr-9 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-blue-600 focus:outline-none">
+              <span class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400">🔍</span>
+            </div>
+
+            <!-- الفلترة حسب الحالة -->
+            <select id="filter-status" class="py-2 px-3 bg-slate-50 border border-slate-300 rounded-xl text-xs font-bold focus:outline-none focus:ring-2 focus:ring-blue-600">
+              <option value="all">جميع الحالات</option>
+              <option value="new">🟡 جديد فقط</option>
+              <option value="contacted">🔵 تم الاتصال</option>
+              <option value="confirmed">🟢 مسجل رسمياً</option>
+              <option value="cancelled">⚪ ملغى</option>
+            </select>
+
+            <!-- الفلترة حسب الصنف -->
+            <select id="filter-license" class="py-2 px-3 bg-slate-50 border border-slate-300 rounded-xl text-xs font-bold focus:outline-none focus:ring-2 focus:ring-blue-600">
+              <option value="all">جميع الأصناف</option>
+              <option value="ب">صنف ب (سيارات)</option>
+              <option value="أ">صنف أ (دراجات)</option>
+              <option value="ج">صنف ج (وزن ثقيل)</option>
+              <option value="د">صنف د (حافلات)</option>
+              <option value="هـ">صنف هـ (مقطورات)</option>
+            </select>
+          </div>
+
+          <!-- أزرار الإجراءات الإدارية -->
+          <div class="flex items-center gap-2 w-full md:w-auto justify-end">
+            <button onclick="openManualRegistrationModal()" class="bg-blue-700 hover:bg-blue-800 text-white font-bold px-4 py-2 rounded-xl text-xs transition flex items-center gap-1.5 shadow">
+              <span>+ تسجيل مترشح يدوي</span>
+            </button>
+            <button onclick="window.print()" class="bg-slate-800 hover:bg-slate-700 text-white font-bold px-3.5 py-2 rounded-xl text-xs transition flex items-center gap-1">
+              <span>🖨️ طباعة الكشف</span>
+            </button>
+            <button onclick="exportBookingsToCSV()" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-3.5 py-2 rounded-xl text-xs transition flex items-center gap-1">
+              <span>📊 تصدير Excel</span>
+            </button>
+          </div>
+
+        </div>
+
+        <!-- جدول التسجيلات -->
+        <div id="printable-table" class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+          
+          <div class="overflow-x-auto">
+            <table class="w-full text-right text-xs">
+              <thead class="bg-slate-50 text-slate-700 font-bold border-b border-slate-200">
+                <tr>
+                  <th class="p-4">#</th>
+                  <th class="p-4">اسم المترشح</th>
+                  <th class="p-4">رقم الهاتف</th>
+                  <th class="p-4">صنف الرخصة</th>
+                  <th class="p-4">نوع الدورة والفترة</th>
+                  <th class="p-4">تاريخ التسجيل</th>
+                  <th class="p-4">الحالة</th>
+                  <th class="p-4 no-print text-center">إجراءات سريعة</th>
+                </tr>
+              </thead>
+              <tbody id="bookings-table-body" class="divide-y divide-slate-100">
+                <!-- تعبئة السجلات بالجافاسكربت -->
+              </tbody>
+            </table>
+          </div>
+
+          <div id="no-records-msg" class="hidden p-12 text-center text-slate-500">
+            <div class="text-4xl mb-2">📂</div>
+            <h4 class="font-bold text-slate-700 text-base">لا توجد أية تسجيلات تطابق معايير البحث</h4>
+            <p class="text-xs text-slate-400 mt-1">عندما يقوم المترشح بالتسجيل من الموقع ستظهر بياناته هنا فوراً.</p>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ============================================== -->
+      <!-- التبويب 2: إعدادات المدرسة وحسابات التواصل والموقع -->
+      <!-- ============================================== -->
+      <section id="tab-settings" class="hidden">
+        
+        <div class="max-w-3xl mx-auto bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm">
+          
+          <div class="border-b border-slate-100 pb-4 mb-6">
+            <h2 class="text-xl font-black text-slate-900">إعدادات المدرسة وحسابات التواصل الاجتماعي والموقع الجغرافي</h2>
+            <p class="text-xs text-slate-500 mt-1">أي تغيير تقوم بحفظه هنا سينعكس مباشرة وبشكل فوري على الموقع الرئيسي!</p>
+          </div>
+
+          <form id="school-settings-form" class="space-y-6">
+            
+            <!-- 1. حسابات مواقع التواصل الاجتماعي -->
+            <div class="bg-blue-50/50 p-5 rounded-2xl border border-blue-100 space-y-4">
+              <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+                <span>🌐</span>
+                <span>روابط حسابات مواقع التواصل الاجتماعي (فيسبوك، انستا، تيك توك، واتساب)</span>
+              </h3>
+
+              <div class="grid sm:grid-cols-2 gap-4">
+                
+                <!-- فيسبوك -->
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1 flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                    <span>رابط صفحة فيسبوك (Facebook URL)</span>
+                  </label>
+                  <input type="url" id="setting-facebook" placeholder="https://facebook.com/your-page" class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-xs font-mono focus:ring-2 focus:ring-blue-600 focus:outline-none">
+                </div>
+
+                <!-- إنستغرام -->
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1 flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-pink-600"></span>
+                    <span>رابط حساب إنستغرام (Instagram URL)</span>
+                  </label>
+                  <input type="url" id="setting-instagram" placeholder="https://instagram.com/your-account" class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-xs font-mono focus:ring-2 focus:ring-blue-600 focus:outline-none">
+                </div>
+
+                <!-- تيك توك -->
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1 flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-slate-900"></span>
+                    <span>رابط حساب تيك توك (TikTok URL)</span>
+                  </label>
+                  <input type="url" id="setting-tiktok" placeholder="https://tiktok.com/@your-account" class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-xs font-mono focus:ring-2 focus:ring-blue-600 focus:outline-none">
+                </div>
+
+                <!-- واتساب -->
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1 flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <span>رقم الواتساب مع الرمز الدولي (مثال: 213555123456)</span>
+                  </label>
+                  <input type="text" id="setting-whatsapp" placeholder="213555123456" class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-xs font-mono focus:ring-2 focus:ring-blue-600 focus:outline-none">
+                </div>
+
+              </div>
+            </div>
+
+            <!-- 2. رابط موقع المدرسة الجغرافي المباشر (Google Maps) -->
+            <div class="bg-amber-50/50 p-5 rounded-2xl border border-amber-100 space-y-3">
+              <h3 class="font-bold text-slate-900 text-sm flex items-center gap-2">
+                <span>📍</span>
+                <span>رابط موقع المدرسة على الخريطة (Google Maps Direct Link)</span>
+              </h3>
+              <p class="text-xs text-slate-600">
+                ضع هنا رابط موقعك المباشر من خرائط جوجل لكي يفتح للزوار مباشرة عند النقر على "موقع المدرسة" أو "فتح في تطبيق خرائط Google".
+              </p>
+              <div>
+                <input type="url" id="setting-maps-url" placeholder="مثال: https://maps.app.goo.gl/xxxxxx أو رابط خرائط جوجل" class="w-full px-3.5 py-2.5 bg-white border border-slate-300 rounded-xl text-xs font-mono focus:ring-2 focus:ring-amber-500 focus:outline-none">
+                <span class="text-[11px] text-slate-500 mt-1 block">💡 يمكنك الحصول عليه بفتح موقع مدرستك على خرائط جوجل ثم الضغط على "مشاركة" ثم "نسخ الرابط".</span>
+              </div>
+            </div>
+
+            <!-- 3. البيانات الأساسية للمدرسة -->
+            <div class="space-y-4">
+              <h3 class="font-bold text-slate-900 text-sm">بيانات التواصل المعروضة في الموقع</h3>
+              
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">اسم المدرسة</label>
+                  <input type="text" id="setting-name" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-bold focus:ring-2 focus:ring-blue-600 focus:outline-none">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">رقم الهاتف الظاهر للاتصال</label>
+                  <input type="text" id="setting-phone" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs font-mono font-bold focus:ring-2 focus:ring-blue-600 focus:outline-none">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">العنوان التفصيلي للمقر</label>
+                <input type="text" id="setting-address" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-blue-600 focus:outline-none">
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">أوقات وساعات العمل</label>
+                <input type="text" id="setting-hours" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl text-xs focus:ring-2 focus:ring-blue-600 focus:outline-none">
+              </div>
+            </div>
+
+            <!-- 4. تغيير الرمز السري للوحة -->
+            <div class="bg-slate-50 p-4 rounded-2xl border border-slate-200">
+              <label class="block text-xs font-bold text-slate-700 mb-1">تغيير رمز الدخول السري للوحة (PIN Code)</label>
+              <input type="password" id="setting-new-pin" placeholder="اتركه فارغاً إذا كنت لا ترغب بتغييره" class="w-full sm:w-60 px-3.5 py-2 bg-white border border-slate-300 rounded-xl text-xs font-mono focus:ring-2 focus:ring-blue-600 focus:outline-none">
+            </div>
+
+            <!-- زر الحفظ -->
+            <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+              <span id="save-toast" class="hidden text-xs font-bold text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-200">
+                ✓ تم حفظ التعديلات وتحديث الموقع بنجاح!
+              </span>
+              <button type="submit" class="bg-blue-700 hover:bg-blue-800 text-white font-black px-6 py-3 rounded-xl text-xs transition shadow-lg shadow-blue-700/20 mr-auto">
+                حفظ كافة الإعدادات والروابط
+              </button>
+            </div>
+
+          </form>
+
+        </div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- نافذة التسجيل اليدوي لمترشح جديد (Manual Registration Modal) -->
+  <div id="manual-reg-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
+    <div class="bg-white rounded-3xl p-6 sm:p-8 max-w-lg w-full shadow-2xl border border-slate-100">
+      <div class="flex justify-between items-center pb-4 border-b border-slate-100 mb-4">
+        <h3 class="font-black text-slate-900 text-base">إضافة تسجيل مترشح جديد يدوياً</h3>
+        <button onclick="closeManualRegistrationModal()" class="text-slate-400 hover:text-slate-600 text-lg">✕</button>
+      </div>
+
+      <form id="manual-reg-form" class="space-y-4 text-xs">
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">الاسم الكامل *</label>
+          <input type="text" id="manual-name" required placeholder="اسم المترشح" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600">
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">رقم الهاتف *</label>
+          <input type="tel" id="manual-phone" required placeholder="مثلاً: 0555123456" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl font-mono focus:outline-none focus:ring-2 focus:ring-blue-600">
+        </div>
+
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">صنف الرخصة</label>
+            <select id="manual-license" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl font-bold">
+              <option value="صنف (ب) - سيارات خفيفة B">صنف (ب) - سيارات B</option>
+              <option value="صنف (أ) - دراجات نارية A">صنف (أ) - دراجات A</option>
+              <option value="صنف (ج) - الوزن الثقيل C">صنف (ج) - وزن ثقيل C</option>
+              <option value="صنف (د) - نقل المسافرين D">صنف (د) - حافلات D</option>
+              <option value="صنف (هـ) - مقطورات E">صنف (هـ) - مقطورات E</option>
+              <option value="دورة صقل المهارات والتحسين">صقل مهارات</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block font-bold text-slate-700 mb-1">نوع الباقة</label>
+            <select id="manual-course" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl">
+              <option value="الباقة الأساسية (Standard)">الباقة الأساسية</option>
+              <option value="الباقة الذهبية VIP (Confort)">الباقة الذهبية VIP</option>
+              <option value="الباقة المكثفة السريعة (Accéléré)">الباقة السريعة</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">الفترة المفضلة للحصص</label>
+          <select id="manual-shift" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl">
+            <option value="الفترة الصباحية (08:00 - 12:00)">صباحية</option>
+            <option value="فترة ما بعد الظهيرة (13:00 - 16:30)">بعد الظهيرة</option>
+            <option value="الفترة المسائية (16:30 - 18:30)">مسائية</option>
+            <option value="عطلة نهاية الأسبوع (الجمعة / السبت)">نهاية الأسبوع</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block font-bold text-slate-700 mb-1">ملاحظات خاصة</label>
+          <textarea id="manual-notes" rows="2" placeholder="ملاحظات المترشح أو الدفعة المالية الأولى..." class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+        </div>
+
+        <div class="pt-3 border-t border-slate-100 flex justify-end gap-2">
+          <button type="button" onclick="closeManualRegistrationModal()" class="px-4 py-2 rounded-xl bg-slate-100 text-slate-700 font-bold hover:bg-slate-200 transition">إلغاء</button>
+          <button type="submit" class="px-5 py-2 rounded-xl bg-blue-700 text-white font-bold hover:bg-blue-800 transition">حفظ التسجيل ➔</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- برمجة لوحة التحكم والتحكم بالتسجيلات والإعدادات -->
+  <script>
+    // الإعدادات الافتراضية
+    const DEFAULT_SETTINGS = {
+      name: "مدرسة الأمان لتعليم السياقة",
+      phone: "+213 555 12 34 56",
+      whatsapp: "213555123456",
+      email: "contact@autoecole-alaman.dz",
+      address: "شارع الاستقلال، مقابل محطة الترامواي الرئيسية، الجزائر العاصمة",
+      workHours: "السبت إلى الخميس: 08:00 صباحاً - 18:30 مساءً",
+      facebook: "https://facebook.com",
+      instagram: "https://instagram.com",
+      tiktok: "https://tiktok.com",
+      mapsUrl: "https://maps.google.com"
+    };
+
+    let currentPin = localStorage.getItem("admin_pin") || "1234";
+
+    // 1. التحقق من تسجيل الدخول
+    document.addEventListener("DOMContentLoaded", () => {
+      checkAuthSession();
+      initLoginForm();
+      initSettingsForm();
+      initManualRegForm();
+      initFiltersAndSearch();
+    });
+
+    function checkAuthSession() {
+      const isAuth = sessionStorage.getItem("admin_auth") === "true";
+      if (isAuth) {
+        unlockDashboard();
+      }
+    }
+
+    function initLoginForm() {
+      const form = document.getElementById("admin-login-form");
+      const pinInput = document.getElementById("admin-pin");
+      const errorMsg = document.getElementById("login-error");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const enteredPin = pinInput.value.trim();
+        const validPin = localStorage.getItem("admin_pin") || "1234";
+
+        if (enteredPin === validPin) {
+          sessionStorage.setItem("admin_auth", "true");
+          errorMsg.classList.add("hidden");
+          unlockDashboard();
+        } else {
+          errorMsg.classList.remove("hidden");
+          pinInput.value = "";
+          pinInput.focus();
+        }
+      });
+
+      document.getElementById("logout-btn").addEventListener("click", () => {
+        sessionStorage.removeItem("admin_auth");
+        location.reload();
+      });
+    }
+
+    function unlockDashboard() {
+      document.getElementById("login-gate").classList.add("hidden");
+      document.getElementById("dashboard-app").classList.remove("hidden");
+      loadSettingsToInputs();
+      renderBookingsTable();
+    }
+
+    // 2. إدارة التبويبات
+    window.switchTab = function(tabName) {
+      document.querySelectorAll(".tab-btn").forEach(btn => {
+        btn.classList.remove("active", "bg-blue-700", "text-white");
+        btn.classList.add("bg-slate-100", "text-slate-700");
+      });
+
+      document.getElementById("tab-tracker").classList.add("hidden");
+      document.getElementById("tab-settings").classList.add("hidden");
+
+      if (tabName === "tracker") {
+        document.getElementById("tab-tracker").classList.remove("hidden");
+        document.getElementById("tab-btn-tracker").classList.add("active", "bg-blue-700", "text-white");
+        document.getElementById("tab-btn-tracker").classList.remove("bg-slate-100", "text-slate-700");
+        renderBookingsTable();
+      } else if (tabName === "settings") {
+        document.getElementById("tab-settings").classList.remove("hidden");
+        document.getElementById("tab-btn-settings").classList.add("active", "bg-blue-700", "text-white");
+        document.getElementById("tab-btn-settings").classList.remove("bg-slate-100", "text-slate-700");
+      }
+    };
+
+    // 3. إدارة وحفظ الإعدادات وروابط التواصل والموقع
+    function loadSettingsToInputs() {
+      const saved = JSON.parse(localStorage.getItem("school_settings") || "null") || DEFAULT_SETTINGS;
+
+      document.getElementById("header-school-name").innerText = saved.name || DEFAULT_SETTINGS.name;
+      document.getElementById("setting-name").value = saved.name || DEFAULT_SETTINGS.name;
+      document.getElementById("setting-phone").value = saved.phone || DEFAULT_SETTINGS.phone;
+      document.getElementById("setting-whatsapp").value = saved.whatsapp || DEFAULT_SETTINGS.whatsapp;
+      document.getElementById("setting-address").value = saved.address || DEFAULT_SETTINGS.address;
+      document.getElementById("setting-hours").value = saved.workHours || DEFAULT_SETTINGS.workHours;
+      document.getElementById("setting-facebook").value = saved.facebook || "";
+      document.getElementById("setting-instagram").value = saved.instagram || "";
+      document.getElementById("setting-tiktok").value = saved.tiktok || "";
+      document.getElementById("setting-maps-url").value = saved.mapsUrl || "";
+    }
+
+    function initSettingsForm() {
+      const form = document.getElementById("school-settings-form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const current = JSON.parse(localStorage.getItem("school_settings") || "null") || DEFAULT_SETTINGS;
+        
+        current.name = document.getElementById("setting-name").value.trim();
+        current.phone = document.getElementById("setting-phone").value.trim();
+        current.whatsapp = document.getElementById("setting-whatsapp").value.trim();
+        current.address = document.getElementById("setting-address").value.trim();
+        current.workHours = document.getElementById("setting-hours").value.trim();
+        current.facebook = document.getElementById("setting-facebook").value.trim();
+        current.instagram = document.getElementById("setting-instagram").value.trim();
+        current.tiktok = document.getElementById("setting-tiktok").value.trim();
+        current.mapsUrl = document.getElementById("setting-maps-url").value.trim();
+
+        localStorage.setItem("school_settings", JSON.stringify(current));
+
+        // تغيير الرمز السري إن وُجد
+        const newPin = document.getElementById("setting-new-pin").value.trim();
+        if (newPin) {
+          localStorage.setItem("admin_pin", newPin);
+          document.getElementById("setting-new-pin").value = "";
+        }
+
+        document.getElementById("header-school-name").innerText = current.name;
+
+        // إشعار بالنجاح
+        const toast = document.getElementById("save-toast");
+        toast.classList.remove("hidden");
+        setTimeout(() => toast.classList.add("hidden"), 3500);
+      });
+    }
+
+    // 4. عرض وتتبع جدول التسجيلات
+    function getBookings() {
+      return JSON.parse(localStorage.getItem("drivingSchoolBookings") || "[]");
+    }
+
+    function saveBookings(bookings) {
+      localStorage.setItem("drivingSchoolBookings", JSON.stringify(bookings));
+      renderBookingsTable();
+    }
+
+    function renderBookingsTable() {
+      let bookings = getBookings();
+      const tbody = document.getElementById("bookings-table-body");
+      const noRecords = document.getElementById("no-records-msg");
+
+      // تحديث الإحصائيات
+      const total = bookings.length;
+      const newCount = bookings.filter(b => !b.status || b.status === "new").length;
+      const contactedCount = bookings.filter(b => b.status === "contacted").length;
+      const confirmedCount = bookings.filter(b => b.status === "confirmed").length;
+
+      document.getElementById("stat-total").innerText = total;
+      document.getElementById("stat-new").innerText = newCount;
+      document.getElementById("stat-contacted").innerText = contactedCount;
+      document.getElementById("stat-confirmed").innerText = confirmedCount;
+      document.getElementById("badge-new-count").innerText = newCount;
+
+      // تطبيق الفلاتر والبحث
+      const searchVal = document.getElementById("search-candidate").value.trim().toLowerCase();
+      const statusFilter = document.getElementById("filter-status").value;
+      const licenseFilter = document.getElementById("filter-license").value;
+
+      if (searchVal) {
+        bookings = bookings.filter(b => 
+          (b.name && b.name.toLowerCase().includes(searchVal)) || 
+          (b.phone && b.phone.includes(searchVal))
+        );
+      }
+
+      if (statusFilter !== "all") {
+        bookings = bookings.filter(b => (b.status || "new") === statusFilter);
+      }
+
+      if (licenseFilter !== "all") {
+        bookings = bookings.filter(b => b.licenseType && b.licenseType.includes(licenseFilter));
+      }
+
+      if (bookings.length === 0) {
+        tbody.innerHTML = "";
+        noRecords.classList.remove("hidden");
+        return;
+      }
+
+      noRecords.classList.add("hidden");
+
+      tbody.innerHTML = bookings.map((item, index) => {
+        const status = item.status || "new";
+        
+        let statusBadge = "";
+        if (status === "new") {
+          statusBadge = `<span class="bg-amber-100 text-amber-800 px-2.5 py-1 rounded-full font-bold">🟡 جديد</span>`;
+        } else if (status === "contacted") {
+          statusBadge = `<span class="bg-blue-100 text-blue-800 px-2.5 py-1 rounded-full font-bold">🔵 تم الاتصال</span>`;
+        } else if (status === "confirmed") {
+          statusBadge = `<span class="bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-full font-bold">🟢 مسجل رسمياً</span>`;
+        } else {
+          statusBadge = `<span class="bg-slate-100 text-slate-600 px-2.5 py-1 rounded-full font-bold">⚪ ملغى</span>`;
+        }
+
+        // تنظيف رقم الهاتف للواتساب
+        const cleanPhone = item.phone ? item.phone.replace(/[^0-9]/g, "") : "";
+        const waLink = `https://wa.me/${cleanPhone.startsWith("0") ? "213" + cleanPhone.substring(1) : cleanPhone}?text=${encodeURIComponent(`مرحباً بك سيد/ة ${item.name}، نتواصل معك من مدرسة الأمان لتعليم السياقة بخصوص طلب تسجيلك.`)}`;
+
+        return `
+          <tr class="hover:bg-slate-50/80 transition">
+            <td class="p-4 font-mono font-bold text-slate-400">${index + 1}</td>
+            <td class="p-4">
+              <strong class="text-slate-900 font-bold block text-sm">${item.name}</strong>
+              ${item.notes ? `<span class="text-[11px] text-slate-500 line-clamp-1">ملاحظة: ${item.notes}</span>` : ''}
+            </td>
+            <td class="p-4">
+              <a href="tel:${item.phone}" class="font-mono font-bold text-blue-700 hover:underline">${item.phone}</a>
+            </td>
+            <td class="p-4">
+              <span class="font-bold text-slate-800">${item.licenseType || "صنف (ب)"}</span>
+            </td>
+            <td class="p-4">
+              <span class="block font-medium">${item.courseType || "الباقة الأساسية"}</span>
+              <span class="text-[11px] text-slate-500">${item.shift || "صباحية"}</span>
+            </td>
+            <td class="p-4 font-mono text-slate-500 text-[11px]">
+              ${item.date || "اليوم"}
+            </td>
+            <td class="p-4">
+              <select onchange="updateCandidateStatus('${item.id || index}', this.value)" class="py-1 px-2 border border-slate-200 rounded-lg text-xs font-bold bg-white focus:outline-none">
+                <option value="new" ${status === 'new' ? 'selected' : ''}>🟡 جديد</option>
+                <option value="contacted" ${status === 'contacted' ? 'selected' : ''}>🔵 تم الاتصال</option>
+                <option value="confirmed" ${status === 'confirmed' ? 'selected' : ''}>🟢 مسجل رسمياً</option>
+                <option value="cancelled" ${status === 'cancelled' ? 'selected' : ''}>⚪ ملغى</option>
+              </select>
+            </td>
+            <td class="p-4 no-print text-center">
+              <div class="flex items-center justify-center gap-2">
+                <a href="${waLink}" target="_blank" class="w-8 h-8 rounded-lg bg-emerald-100 hover:bg-emerald-600 text-emerald-700 hover:text-white flex items-center justify-center text-sm transition" title="محادثة واتساب مباشرة">
+                  💬
+                </a>
+                <a href="tel:${item.phone}" class="w-8 h-8 rounded-lg bg-blue-100 hover:bg-blue-600 text-blue-700 hover:text-white flex items-center justify-center text-sm transition" title="اتصال هاتفي">
+                  📞
+                </a>
+                <button onclick="deleteBooking('${item.id || index}')" class="w-8 h-8 rounded-lg bg-red-100 hover:bg-red-600 text-red-700 hover:text-white flex items-center justify-center text-sm transition" title="حذف السجل">
+                  🗑️
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join("");
+    }
+
+    window.updateCandidateStatus = function(identifier, newStatus) {
+      const bookings = getBookings();
+      const item = bookings.find((b, idx) => (b.id ? b.id === identifier : idx.toString() === identifier));
+      if (item) {
+        item.status = newStatus;
+        saveBookings(bookings);
+      }
+    };
+
+    window.deleteBooking = function(identifier) {
+      if (!confirm("هل أنت متأكد من رغبتك في حذف هذا التسجيل؟")) return;
+      let bookings = getBookings();
+      bookings = bookings.filter((b, idx) => (b.id ? b.id !== identifier : idx.toString() !== identifier));
+      saveBookings(bookings);
+    };
+
+    function initFiltersAndSearch() {
+      const search = document.getElementById("search-candidate");
+      const filterSt = document.getElementById("filter-status");
+      const filterLic = document.getElementById("filter-license");
+
+      search.addEventListener("input", renderBookingsTable);
+      filterSt.addEventListener("change", renderBookingsTable);
+      filterLic.addEventListener("change", renderBookingsTable);
+    }
+
+    // 5. التسجيل اليدوي لمترشح
+    window.openManualRegistrationModal = function() {
+      document.getElementById("manual-reg-modal").classList.remove("hidden");
+    };
+
+    window.closeManualRegistrationModal = function() {
+      document.getElementById("manual-reg-modal").classList.add("hidden");
+      document.getElementById("manual-reg-form").reset();
+    };
+
+    function initManualRegForm() {
+      const form = document.getElementById("manual-reg-form");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const newRecord = {
+          id: "REG-" + Math.floor(100000 + Math.random() * 900000),
+          name: document.getElementById("manual-name").value.trim(),
+          phone: document.getElementById("manual-phone").value.trim(),
+          licenseType: document.getElementById("manual-license").value,
+          courseType: document.getElementById("manual-course").value,
+          shift: document.getElementById("manual-shift").value,
+          notes: document.getElementById("manual-notes").value.trim(),
+          date: new Date().toLocaleDateString("ar-DZ") + " " + new Date().toLocaleTimeString("ar-DZ", { hour: '2-digit', minute: '2-digit' }),
+          status: "new"
+        };
+
+        const bookings = getBookings();
+        bookings.unshift(newRecord);
+        saveBookings(bookings);
+
+        closeManualRegistrationModal();
+      });
+    }
+
+    // 6. تصدير كشف التسجيلات إلى ملف CSV (Excel)
+    window.exportBookingsToCSV = function() {
+      const bookings = getBookings();
+      if (bookings.length === 0) {
+        alert("لا توجد تسجيلات لتصديرها حالياً.");
+        return;
+      }
+
+      let csvContent = "\uFEFFالرقم,الاسم الكامل,رقم الهاتف,صنف الرخصة,نوع الدورة,الفترة,تاريخ التسجيل,الحالة,ملاحظات\n";
+
+      bookings.forEach((b, i) => {
+        const row = [
+          i + 1,
+          `"${(b.name || "").replace(/"/g, '""')}"`,
+          `"${b.phone || ""}"`,
+          `"${b.licenseType || ""}"`,
+          `"${b.courseType || ""}"`,
+          `"${b.shift || ""}"`,
+          `"${b.date || ""}"`,
+          `"${b.status || "new"}"`,
+          `"${(b.notes || "").replace(/"/g, '""')}"`
+        ];
+        csvContent += row.join(",") + "\n";
+      });
+
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `تسجيلات_مدرسة_السياقة_${new Date().toISOString().slice(0, 10)}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    };
+  </script>
+
+</body>
+</html>

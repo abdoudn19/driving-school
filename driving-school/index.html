@@ -1,0 +1,1537 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>مدرسة الأمان لتعليم السياقة | Auto-École Al-Aman</title>
+  <meta name="description" content="الموقع الرسمي لمدرسة الأمان لتعليم السياقة. تدريب نظري وتطبيقي احترافي لجميع أصناف رخص السياقة (أ، ب، ج، د، هـ) مع أحدث السيارات ونخبة من المدربين المعتمدين.">
+  <meta name="keywords" content="تعليم سياقة, رخصة سياقة, قانون المرور, كود دو لاروت, مدرسة سياقة, Auto ecole, Permis de conduire">
+
+  <!-- الخطوط العربية: Cairo & Tajawal -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS عبر CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Cairo', 'Tajawal', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#eff6ff',
+              100: '#dbeafe',
+              500: '#3b82f6',
+              600: '#2563eb',
+              700: '#1d4ed8',
+              800: '#1e40af',
+              900: '#1e3a8a',
+              950: '#0f172a',
+            },
+            accent: {
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- التنسيقات المخصصة -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-amber-400 selection:text-slate-900">
+
+  <!-- 1. شريط الإعلانات والمعلومات العلوية -->
+  <header class="bg-slate-950 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-3">
+      <div class="flex items-center gap-4">
+        <span class="flex items-center gap-1.5 text-amber-400 font-semibold">
+          <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+          التسجيلات مفتوحة لدورة هذا الشهر!
+        </span>
+        <span class="hidden md:inline-flex items-center gap-1 text-slate-400" data-school-hours>
+          🕒 أوقات الدوام: السبت - الخميس: 08:00 إلى 18:30
+        </span>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <!-- روابط حسابات التواصل الاجتماعي -->
+        <div class="flex items-center gap-2 border-l border-slate-800 pl-3">
+          <span class="text-slate-400 hidden lg:inline text-[11px]">تابعنا:</span>
+          
+          <!-- فيسبوك -->
+          <a href="https://facebook.com" target="_blank" data-social="facebook" class="w-6 h-6 rounded-lg bg-slate-800 hover:bg-blue-600 text-white flex items-center justify-center transition shadow-sm" title="صفحتنا على فيسبوك">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+
+          <!-- إنستغرام -->
+          <a href="https://instagram.com" target="_blank" data-social="instagram" class="w-6 h-6 rounded-lg bg-slate-800 hover:bg-pink-600 text-white flex items-center justify-center transition shadow-sm" title="حسابنا على إنستغرام">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+
+          <!-- تيك توك -->
+          <a href="https://tiktok.com" target="_blank" data-social="tiktok" class="w-6 h-6 rounded-lg bg-slate-800 hover:bg-black text-white flex items-center justify-center transition shadow-sm" title="حسابنا على تيك توك">
+            <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.83 4.47 6.27 6.27 0 0 0 1.84-4.47V8.75a8.28 8.28 0 0 0 4.92 1.62V6.92a4.8 4.8 0 0 1-1-.23z"/></svg>
+          </a>
+
+          <!-- واتساب -->
+          <a href="https://wa.me/213555123456" target="_blank" data-social="whatsapp" class="w-6 h-6 rounded-lg bg-slate-800 hover:bg-emerald-600 text-white flex items-center justify-center transition shadow-sm" title="محادثة واتساب">
+            <span class="text-xs">💬</span>
+          </a>
+        </div>
+
+        <a href="tel:+213555123456" data-school-phone class="hover:text-amber-400 transition flex items-center gap-1 font-mono font-bold">
+          📞 0555 12 34 56
+        </a>
+        <a href="https://wa.me/213555123456" target="_blank" data-school-whatsapp class="hover:text-emerald-400 transition flex items-center gap-1 font-semibold text-emerald-400">
+          💬 خدمة العملاء
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 2. شريط التنقل الرئيسي (Navbar) -->
+  <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        
+        <!-- الشعار (Logo) -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-blue-900 to-blue-700 flex items-center justify-center text-white shadow-lg shadow-blue-900/20 group-hover:scale-105 transition">
+            <!-- أيقونة المقود والسيارة -->
+            <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="2" x2="12" y2="22"></line>
+              <line x1="2" y1="12" x2="22" y2="12"></line>
+              <circle cx="12" cy="12" r="3" fill="#f59e0b" stroke="#f59e0b"></circle>
+            </svg>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight font-sans">الأمـان</span>
+              <span class="text-xs bg-amber-400 text-slate-950 font-extrabold px-1.5 py-0.5 rounded">تعليم السياقة</span>
+            </div>
+            <span class="text-[11px] text-slate-500 font-semibold block tracking-wider uppercase">Auto-École Al-Aman</span>
+          </div>
+        </a>
+
+        <!-- الروابط على الشاشات الكبيرة -->
+        <div class="hidden lg:flex items-center gap-6 font-bold text-sm text-slate-700">
+          <a href="#about" class="hover:text-blue-700 transition">عن المدرسة</a>
+          <a href="#licenses" class="hover:text-blue-700 transition">أصناف الرخص</a>
+          <a href="#phases" class="hover:text-blue-700 transition">مراحل التكوين</a>
+          <a href="#signs-guide" class="hover:text-blue-700 transition">إشارات المرور</a>
+          <a href="#code-quiz" class="text-blue-700 hover:text-blue-800 flex items-center gap-1 transition">
+            <span class="w-2 h-2 rounded-full bg-blue-600 animate-pulse"></span>
+            امتحان الكود والسلامة
+          </a>
+          <a href="#packages" class="hover:text-blue-700 transition">الباقات والأسعار</a>
+          <a href="#dossier-section" class="hover:text-blue-700 transition">ملف التسجيل</a>
+          <a href="#contact" class="hover:text-blue-700 transition">اتصل بنا</a>
+        </div>
+
+        <!-- زر التسجيل وزر الموبايل -->
+        <div class="flex items-center gap-3">
+          <a href="#registration-section" class="hidden sm:inline-flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-black px-5 py-2.5 rounded-xl shadow-md shadow-amber-500/20 transition transform hover:-translate-y-0.5">
+            <span>سجّل الآن</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+          </a>
+          
+          <button id="mobile-menu-btn" class="lg:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 focus:outline-none" aria-label="فتح القائمة">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- قائمة الهواتف الذكية (Mobile Drawer) -->
+    <div id="mobile-menu" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm">
+      <div class="fixed inset-y-0 right-0 max-w-xs w-full bg-white shadow-2xl p-6 flex flex-col justify-between overflow-y-auto">
+        <div>
+          <div class="flex justify-between items-center pb-4 border-b border-slate-100">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-lg bg-blue-900 flex items-center justify-center text-white font-bold text-sm">أ</div>
+              <span class="font-black text-slate-900">مدرسة الأمان</span>
+            </div>
+            <button id="close-mobile-menu" class="p-2 rounded-lg text-slate-400 hover:bg-slate-100">
+              ✕
+            </button>
+          </div>
+          <div class="flex flex-col gap-3 mt-6 font-bold text-slate-700">
+            <a href="#about" class="py-2 px-3 rounded-lg hover:bg-slate-50">عن المدرسة</a>
+            <a href="#licenses" class="py-2 px-3 rounded-lg hover:bg-slate-50">أصناف الرخص</a>
+            <a href="#phases" class="py-2 px-3 rounded-lg hover:bg-slate-50">مراحل التكوين</a>
+            <a href="#signs-guide" class="py-2 px-3 rounded-lg hover:bg-slate-50">دليل إشارات المرور</a>
+            <a href="#code-quiz" class="py-2 px-3 rounded-lg bg-blue-50 text-blue-700">امتحان الكود والسلامة المرورية 🚗</a>
+            <a href="#packages" class="py-2 px-3 rounded-lg hover:bg-slate-50">الباقات والأسعار</a>
+            <a href="#dossier-section" class="py-2 px-3 rounded-lg hover:bg-slate-50">ملف التسجيل</a>
+            <a href="#contact" class="py-2 px-3 rounded-lg hover:bg-slate-50">اتصل بنا</a>
+          </div>
+        </div>
+        <div class="pt-6 border-t border-slate-100 flex flex-col gap-3">
+          <a href="#registration-section" class="w-full text-center bg-amber-500 hover:bg-amber-600 text-slate-950 font-black py-3 rounded-xl shadow">
+            التسجيل أونلاين
+          </a>
+          <a href="tel:+213555123456" class="w-full text-center bg-slate-100 text-slate-800 font-bold py-2.5 rounded-xl">
+            اتصال هاتفي مباشر
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 3. الواجهة الترحيبية الكبرى (Hero Section) -->
+  <section class="relative hero-gradient text-white pt-12 pb-20 lg:pt-20 lg:pb-32 overflow-hidden">
+    <!-- خلفية جمالية مائلة -->
+    <div class="absolute inset-0 opacity-10 pointer-events-none bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px]"></div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- الجانب الأيمن: النص ودعوة العمل -->
+        <div class="lg:col-span-7 space-y-6 text-center lg:text-right">
+          
+          <div class="inline-flex items-center gap-2 bg-blue-800/60 border border-blue-600/40 px-4 py-1.5 rounded-full text-xs font-semibold text-amber-300 backdrop-blur-sm">
+            <span>🛡️ تكوين معتمد ورسمي</span>
+            <span class="w-1 h-1 bg-amber-400 rounded-full"></span>
+            <span>نسبة نجاح قياسية من المرة الأولى</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.2]">
+            طريقك نحو رخصة القيادة
+            <span class="block text-transparent bg-clip-text bg-gradient-to-l from-amber-400 via-amber-300 to-yellow-200">
+              بكل ثقة واحترافية
+            </span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0 font-normal">
+            نضع بين يديك أكثر من 12 عاماً من الخبرة، وأحدث أسطول سيارات تدريب مجهزة بأنظمة أمان مزدوجة، مع نخبة من خيرة المدربين والمدربات المعتمدين لمرافقتك خطوة بخطوة من أول درس حتى استلام رخصتك.
+          </p>
+
+          <!-- أزرار الإجراء السريع -->
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
+            <a href="#registration-section" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-black px-7 py-3.5 rounded-2xl shadow-xl shadow-amber-500/25 transition transform hover:-translate-y-1 flex items-center gap-2">
+              <span>احجز مقعدك الآن</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            </a>
+            <a href="#code-quiz" class="bg-slate-800/80 hover:bg-slate-800 text-white font-bold px-6 py-3.5 rounded-2xl border border-slate-700 backdrop-blur-sm transition flex items-center gap-2">
+              <span>اختبر معلوماتك مجاناً</span>
+              <span class="text-amber-400">✨</span>
+            </a>
+          </div>
+
+          <!-- شريط الإحصائيات والأرقام -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-8 border-t border-blue-800/60">
+            <div class="p-3 bg-blue-900/40 rounded-xl border border-blue-800/40 backdrop-blur-sm">
+              <div class="text-2xl sm:text-3xl font-black text-amber-400 font-mono">+1,850</div>
+              <div class="text-xs text-slate-300 mt-0.5">مترشح ناجح</div>
+            </div>
+            <div class="p-3 bg-blue-900/40 rounded-xl border border-blue-800/40 backdrop-blur-sm">
+              <div class="text-2xl sm:text-3xl font-black text-amber-400 font-mono">98%</div>
+              <div class="text-xs text-slate-300 mt-0.5">نسبة نجاح الدفعة الأولى</div>
+            </div>
+            <div class="p-3 bg-blue-900/40 rounded-xl border border-blue-800/40 backdrop-blur-sm">
+              <div class="text-2xl sm:text-3xl font-black text-amber-400 font-mono">+12</div>
+              <div class="text-xs text-slate-300 mt-0.5">سنة خبرة معتمدة</div>
+            </div>
+            <div class="p-3 bg-blue-900/40 rounded-xl border border-blue-800/40 backdrop-blur-sm">
+              <div class="text-2xl sm:text-3xl font-black text-amber-400 font-mono">100%</div>
+              <div class="text-xs text-slate-300 mt-0.5">سيارات حديثة ومكيفة</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- الجانب الأيسر: بطاقة محاكاة رخصة القيادة والسيارة -->
+        <div class="lg:col-span-5">
+          <div class="relative mx-auto max-w-md">
+            
+            <!-- هالة ضوئية خلفية -->
+            <div class="absolute -inset-1.5 bg-gradient-to-r from-amber-500 to-blue-600 rounded-3xl blur-xl opacity-40"></div>
+
+            <!-- بطاقة محاكاة رخصة سياقة تفاعلية وعصرية -->
+            <div class="relative bg-gradient-to-br from-slate-900 via-slate-800 to-blue-950 p-6 sm:p-8 rounded-3xl border border-slate-700 shadow-2xl text-white">
+              
+              <div class="flex justify-between items-start pb-4 border-b border-slate-700/80 mb-6">
+                <div>
+                  <span class="text-xs font-mono uppercase text-amber-400 tracking-wider">Permis de Conduire • رخصة سياقة</span>
+                  <h3 class="text-lg font-black text-white mt-1">الجمهورية الديمقراطية الشعبية</h3>
+                </div>
+                <div class="w-10 h-10 rounded-xl bg-blue-600/30 border border-blue-400/40 flex items-center justify-center font-bold text-amber-400">
+                  DZ
+                </div>
+              </div>
+
+              <!-- محاكاة تفاصيل الرخصة -->
+              <div class="flex gap-4 items-center mb-6">
+                <div class="w-24 h-28 rounded-2xl bg-slate-700/60 border-2 border-dashed border-amber-400/60 flex flex-col items-center justify-center text-center p-2">
+                  <div class="text-3xl mb-1">👤</div>
+                  <span class="text-[10px] text-amber-300 font-bold">صورة المترشح</span>
+                </div>
+                <div class="space-y-2 text-xs flex-1">
+                  <div>
+                    <span class="text-slate-400 block text-[11px]">الصنف المؤهل:</span>
+                    <span class="text-base font-extrabold text-white">صنف (ب) - السيارات الخفيفة B</span>
+                  </div>
+                  <div>
+                    <span class="text-slate-400 block text-[11px]">مدرسة التكوين:</span>
+                    <span class="font-bold text-amber-400">مدرسة الأمان المعتمدة</span>
+                  </div>
+                  <div>
+                    <span class="text-slate-400 block text-[11px]">الحالة:</span>
+                    <span class="inline-flex items-center gap-1 bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded text-[11px] font-bold">
+                      ● جاهز لخوض الامتحان
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- شريط الأمان والميزات السريعة داخل البطاقة -->
+              <div class="bg-blue-950/60 rounded-xl p-3 border border-blue-800/40 flex items-center justify-between text-xs">
+                <div class="flex items-center gap-2">
+                  <span class="text-lg">🚗</span>
+                  <span class="text-slate-200">تدريب مانيوال وأوتوماتيك</span>
+                </div>
+                <span class="text-amber-400 font-bold">مضمون 100%</span>
+              </div>
+
+              <div class="mt-4 pt-4 border-t border-slate-700/80 flex items-center justify-between text-xs text-slate-400">
+                <span>رقم الاعتماد: 2026/DZ/458</span>
+                <span>ساعات مرنة • مدربون صبورون</span>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- خط الزينة السفلي -->
+    <div class="absolute bottom-0 left-0 right-0">
+      <div class="road-strip-dark opacity-50"></div>
+    </div>
+  </section>
+
+  <!-- 4. شريط الميزات ونقاط القوة (Features Grid) -->
+  <section id="about" class="py-16 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs font-extrabold tracking-wider uppercase text-blue-700 bg-blue-50 px-3 py-1 rounded-full">لماذا تختار مدرستنا؟</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3">
+          بيئة تعليمية مريحة تركز على نجاحك وسلامتك
+        </h2>
+        <p class="text-slate-600 mt-3 text-base">
+          لا نهدف فقط لمنحك رخصة السياقة، بل نعلّمك كيف تقود بأمان وثقة تامة في كافة ظروف الطريق والازدحام.
+        </p>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- ميزة 1 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover-lift group">
+          <div class="w-14 h-14 rounded-2xl bg-blue-600 text-white flex items-center justify-center text-2xl shadow-lg shadow-blue-600/30 mb-5 group-hover:scale-110 transition">
+            👨‍🏫
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">مدربون معتمدون وصبورون</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            كفاءات عالية ومدربون ومدربات يتميزون بالصبر التام والأسلوب البيداغوجي الحديث لكسر حاجز الخوف والارتباك.
+          </p>
+        </div>
+
+        <!-- ميزة 2 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover-lift group">
+          <div class="w-14 h-14 rounded-2xl bg-amber-500 text-slate-950 flex items-center justify-center text-2xl shadow-lg shadow-amber-500/30 mb-5 group-hover:scale-110 transition">
+            🚘
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">أسطول سيارات حديثة</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            سيارات مكيفة وسلسة القيادة مجهزة بدواسات تحكم مزدوجة تضمن أقصى درجات الأمان والراحة أثناء التدريب الميداني.
+          </p>
+        </div>
+
+        <!-- ميزة 3 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover-lift group">
+          <div class="w-14 h-14 rounded-2xl bg-emerald-600 text-white flex items-center justify-center text-2xl shadow-lg shadow-emerald-600/30 mb-5 group-hover:scale-110 transition">
+            💻
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">قاعات تدريب ذكية</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            شاشات عرض رقمية ومحاكيات لاختبارات قانون المرور (Code) بأحدث الأسئلة المطابقة تماماً للامتحانات الرسمية.
+          </p>
+        </div>
+
+        <!-- ميزة 4 -->
+        <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100 hover-lift group">
+          <div class="w-14 h-14 rounded-2xl bg-purple-600 text-white flex items-center justify-center text-2xl shadow-lg shadow-purple-600/30 mb-5 group-hover:scale-110 transition">
+            ⏱️
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 mb-2">مواعيد مرنة وسريعة</h3>
+          <p class="text-sm text-slate-600 leading-relaxed">
+            برنامج حصص صباحي ومسائي وحتى في عطلات نهاية الأسبوع، مع إمكانية التكوين المكثف (Stage Accéléré) للمستعجلين.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 5. أصناف رخص السياقة (License Categories) -->
+  <section id="licenses" class="py-20 bg-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-extrabold tracking-wider uppercase text-blue-700 bg-blue-100 px-3 py-1 rounded-full">أصناف الرخص المعتمدة</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3">
+          نوفر التدريب لجميع أصناف رخص السياقة
+        </h2>
+        <p class="text-slate-600 mt-3 text-base">
+          اختر الصنف المناسب لك واطلع على الشروط وساعات التدريب المطلوبة واحجز دورتك بنقرة زر.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- الصنف ب (السيارات السياحية الخفيفة) - مميز -->
+        <div class="bg-white rounded-3xl p-7 border-2 border-blue-600 shadow-xl relative overflow-hidden flex flex-col justify-between hover-lift">
+          <div class="absolute top-0 left-0 bg-blue-600 text-white text-xs font-black px-4 py-1.5 rounded-br-2xl">
+            الأكثر طلباً ⭐
+          </div>
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-12 h-12 rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center font-black text-xl">B</span>
+              <div>
+                <h3 class="text-2xl font-black text-slate-900">صنف (ب) - سيارات خفيفة</h3>
+                <span class="text-xs text-slate-500">Permis Catégorie B</span>
+              </div>
+            </div>
+            <p class="text-sm text-slate-600 mb-6">
+              رخصة السياقة للمركبات السياحية ونقل البضائع التي لا يتجاوز وزنها الإجمالي 3.5 طن ولا تتعدى 9 مقاعد مع السائق.
+            </p>
+            <div class="space-y-3 border-t border-slate-100 pt-4 text-xs font-semibold text-slate-700">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">السن القانوني الأدنى:</span>
+                <span class="font-bold text-slate-900">18 سنة</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">نوع ناقل الحركة:</span>
+                <span class="font-bold text-slate-900">عادي (مانيوال) أو أوتوماتيك</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">مدة الدورة المتوقعة:</span>
+                <span class="font-bold text-blue-700">من 4 إلى 8 أسابيع</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-100">
+            <button onclick="selectLicenseForBooking('صنف (ب) - سيارات سياحية خفيفة')" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-bold py-3 rounded-xl transition text-center shadow-md shadow-blue-700/20">
+              سجل في صنف (ب) الآن
+            </button>
+          </div>
+        </div>
+
+        <!-- الصنف أ (الدراجات النارية) -->
+        <div class="bg-white rounded-3xl p-7 border border-slate-200 shadow-md hover-lift flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-12 h-12 rounded-2xl bg-amber-100 text-amber-700 flex items-center justify-center font-black text-xl">A</span>
+              <div>
+                <h3 class="text-2xl font-black text-slate-900">صنف (أ) - دراجات نارية</h3>
+                <span class="text-xs text-slate-500">Permis Catégorie A / A1</span>
+              </div>
+            </div>
+            <p class="text-sm text-slate-600 mb-6">
+              قيادة الدراجات النارية بمختلف سعات المحرك. تدريب تطبيقي مكثف على التوازن، تفادي العوائق، والسلامة المرورية.
+            </p>
+            <div class="space-y-3 border-t border-slate-100 pt-4 text-xs font-semibold text-slate-700">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">السن القانوني الأدنى:</span>
+                <span class="font-bold text-slate-900">16 سنة لـ A1 / 18 سنة لـ A</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">التدريب الميداني:</span>
+                <span class="font-bold text-slate-900">مسار الحلبة المغلقة + الطريق</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">الخوذة وعتاد السلامة:</span>
+                <span class="font-bold text-emerald-600">متوفرة مجاناً بالمدرسة</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-100">
+            <button onclick="selectLicenseForBooking('صنف (أ) - دراجات نارية')" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition text-center">
+              سجل في صنف (أ)
+            </button>
+          </div>
+        </div>
+
+        <!-- الصنف ج / ج1 (الوزن الثقيل والشاحنات) -->
+        <div class="bg-white rounded-3xl p-7 border border-slate-200 shadow-md hover-lift flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-12 h-12 rounded-2xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-black text-xl">C</span>
+              <div>
+                <h3 class="text-2xl font-black text-slate-900">صنف (ج) - الوزن الثقيل</h3>
+                <span class="text-xs text-slate-500">Permis Poids Lourd C / C1</span>
+              </div>
+            </div>
+            <p class="text-sm text-slate-600 mb-6">
+              مخصص لقيادة شاحنات نقل البضائع التي يفوق وزنها 3.5 طن. فرصة ذهبية لولوج سوق العمل والتوظيف السريع.
+            </p>
+            <div class="space-y-3 border-t border-slate-100 pt-4 text-xs font-semibold text-slate-700">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">الشرط الأساسي:</span>
+                <span class="font-bold text-slate-900">حيازة رخصة (ب) سنتين على الأقل</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">السن القانوني الأدنى:</span>
+                <span class="font-bold text-slate-900">21 سنة كاملة</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">شاحنات التدريب:</span>
+                <span class="font-bold text-slate-900">شاحنات حديثة ومجهزة بالكامل</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-100">
+            <button onclick="selectLicenseForBooking('صنف (ج) - الوزن الثقيل')" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition text-center">
+              سجل في صنف (ج)
+            </button>
+          </div>
+        </div>
+
+        <!-- الصنف د (النقل الجماعي والحافلات) -->
+        <div class="bg-white rounded-3xl p-7 border border-slate-200 shadow-md hover-lift flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-12 h-12 rounded-2xl bg-purple-100 text-purple-700 flex items-center justify-center font-black text-xl">D</span>
+              <div>
+                <h3 class="text-2xl font-black text-slate-900">صنف (د) - النقل العمومي</h3>
+                <span class="text-xs text-slate-500">Permis Transport en Commun D</span>
+              </div>
+            </div>
+            <p class="text-sm text-slate-600 mb-6">
+              قيادة الحافلات ومركبات نقل المسافرين التي يزيد عدد مقاعدها عن 9 مقاعد. تدريب على القيادة الوقائية وراحة الركاب.
+            </p>
+            <div class="space-y-3 border-t border-slate-100 pt-4 text-xs font-semibold text-slate-700">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">الشرط:</span>
+                <span class="font-bold text-slate-900">حيازة رخصة (ب) أو (ج)</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">السن الأدنى:</span>
+                <span class="font-bold text-slate-900">25 سنة</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-100">
+            <button onclick="selectLicenseForBooking('صنف (د) - نقل المسافرين')" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition text-center">
+              سجل في صنف (د)
+            </button>
+          </div>
+        </div>
+
+        <!-- الصنف هـ (المقطورات) -->
+        <div class="bg-white rounded-3xl p-7 border border-slate-200 shadow-md hover-lift flex flex-col justify-between">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-12 h-12 rounded-2xl bg-rose-100 text-rose-700 flex items-center justify-center font-black text-xl">E</span>
+              <div>
+                <h3 class="text-2xl font-black text-slate-900">صنف (هـ) - المقطورات</h3>
+                <span class="text-xs text-slate-500">Permis Remorque (EB / EC)</span>
+              </div>
+            </div>
+            <p class="text-sm text-slate-600 mb-6">
+              جر مقطورة أو نصف مقطورة يزيد وزنها عن 750 كغ. التركيز على مناورات الرجوع إلى الخلف والمفترقات والمنحدرات.
+            </p>
+            <div class="space-y-3 border-t border-slate-100 pt-4 text-xs font-semibold text-slate-700">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">الأصناف الملحقة:</span>
+                <span class="font-bold text-slate-900">EB (سيارات) أو EC (شاحنات)</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-500">التدريب:</span>
+                <span class="font-bold text-slate-900">مناورات دقيقة ومسارات واقعية</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-100">
+            <button onclick="selectLicenseForBooking('صنف (هـ) - المقطورات')" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition text-center">
+              سجل في صنف (هـ)
+            </button>
+          </div>
+        </div>
+
+        <!-- باقة إعادة التأهيل وصقل المهارات -->
+        <div class="bg-gradient-to-br from-blue-900 to-slate-900 text-white rounded-3xl p-7 shadow-xl flex flex-col justify-between hover-lift">
+          <div>
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-12 h-12 rounded-2xl bg-amber-400 text-slate-950 flex items-center justify-center font-black text-xl">★</span>
+              <div>
+                <h3 class="text-2xl font-black text-white">صقل المهارات</h3>
+                <span class="text-xs text-amber-300 font-semibold">Perfectionnement & Conduite</span>
+              </div>
+            </div>
+            <p class="text-sm text-slate-300 mb-6">
+              لديك رخصة سياقة ولكن تشعر بالخوف أو الانقطاع عن القيادة؟ هذه الدورة مخصصة لاستعادة الثقة واحتراف القيادة في الزحام والمواقف الصعبة.
+            </p>
+            <div class="space-y-3 border-t border-slate-700 pt-4 text-xs">
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400">عدد الحصص:</span>
+                <span class="font-bold text-amber-400">حسب رغبتك واحتياجك</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-slate-400">السيارة:</span>
+                <span class="font-bold text-white">سيارة المدرسة أو سيارتك الخاصة</span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-8 pt-4 border-t border-slate-700">
+            <button onclick="selectLicenseForBooking('دورة صقل المهارات والتحسين')" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-black py-3 rounded-xl transition text-center shadow-lg">
+              احجز حصص تحسين القيادة
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 6. مراحل التكوين الثلاث (The 3 Phases) -->
+  <section id="phases" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-extrabold tracking-wider uppercase text-blue-700 bg-blue-50 px-3 py-1 rounded-full">مسار التكوين الرسمي</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3">
+          ثلاث مراحل مدروسة تضمن نجاحك خطوة بخطوة
+        </h2>
+        <p class="text-slate-600 mt-3 text-base">
+          منهج تدريبي معتمد ومتكامل يراعي التدرج من القواعد النظرية إلى التحكم الحركي الكامل في المركبة على الطريق.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 relative">
+        
+        <!-- المرحلة 1 -->
+        <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200/80 relative group hover-lift">
+          <div class="w-12 h-12 rounded-2xl bg-blue-700 text-white font-black flex items-center justify-center text-xl mb-6 shadow-md shadow-blue-700/30">
+            1
+          </div>
+          <span class="text-xs font-bold text-blue-700 uppercase tracking-wider block mb-1">المرحلة الأولى</span>
+          <h3 class="text-2xl font-black text-slate-900 mb-3">قانون المرور (Le Code)</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-6">
+            دراسة شاملة لإشارات المرور بجميع أصنافها، قواعد أولوية المرور في المفترقات، السرعات القصوى، ومسافات الأمان، مع امتحانات تجريبية دورية على شاشات تفاعلية.
+          </p>
+          <ul class="text-xs font-semibold text-slate-700 space-y-2 border-t border-slate-200/60 pt-4">
+            <li class="flex items-center gap-2"><span class="text-emerald-600">✓</span> استيعاب كافة إشارات الخطر والمنع والإجبار</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-600">✓</span> إتقان أولويات المفترقات والدوارات</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-600">✓</span> تدريب على أسئلة الامتحانات الرسمية السابقة</li>
+          </ul>
+        </div>
+
+        <!-- المرحلة 2 -->
+        <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200/80 relative group hover-lift">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500 text-slate-950 font-black flex items-center justify-center text-xl mb-6 shadow-md shadow-amber-500/30">
+            2
+          </div>
+          <span class="text-xs font-bold text-amber-600 uppercase tracking-wider block mb-1">المرحلة الثانية</span>
+          <h3 class="text-2xl font-black text-slate-900 mb-3">المناورات والكرينو (Le Créneau)</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-6">
+            التدريب في حلبة مغلقة على التحكم الدقيق بأبعاد السيارة، الركن المتوازي (Créneau)، الرجوع للخلف بين الأعمدة، والانطلاق في المرتفعات دون رجوع السيارة للخلف.
+          </p>
+          <ul class="text-xs font-semibold text-slate-700 space-y-2 border-t border-slate-200/60 pt-4">
+            <li class="flex items-center gap-2"><span class="text-emerald-600">✓</span> ضبط نقاط العلام الدقيقة لركن مثالي</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-600">✓</span> إتقان ميزان الدواسات (نقطة الاحتكاك - Point de patinage)</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-600">✓</span> مناورة الانطلاق في المنحدر (Démarrage en côte)</li>
+          </ul>
+        </div>
+
+        <!-- المرحلة 3 -->
+        <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200/80 relative group hover-lift">
+          <div class="w-12 h-12 rounded-2xl bg-emerald-600 text-white font-black flex items-center justify-center text-xl mb-6 shadow-md shadow-emerald-600/30">
+            3
+          </div>
+          <span class="text-xs font-bold text-emerald-600 uppercase tracking-wider block mb-1">المرحلة الثالثة</span>
+          <h3 class="text-2xl font-black text-slate-900 mb-3">السياقة في الطريق (Le Circuit)</h3>
+          <p class="text-sm text-slate-600 leading-relaxed mb-6">
+            الخروج إلى الطرقات الحقيقية، السياقة وسط الازدحام الحضري، التجاوز الآمن، الاندماج في الطرق السريعة، وتطبيق قواعد السياقة الوقائية تحت إشراف وتوجيه دائم.
+          </p>
+          <ul class="text-xs font-semibold text-slate-700 space-y-2 border-t border-slate-200/60 pt-4">
+            <li class="flex items-center gap-2"><span class="text-emerald-600">✓</span> سياقة واقعية في نفس مسارات الامتحان المعتمدة</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-600">✓</span> التكيف مع حركة المرور ومفاجآت الطريق</li>
+            <li class="flex items-center gap-2"><span class="text-emerald-600">✓</span> التغلب التام على التردد واكتساب برودة الأعصاب</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 7. دليل إشارات المرور التفاعلي (Interactive Signs Guide) -->
+  <section id="signs-guide" class="py-20 bg-slate-100 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-extrabold tracking-wider uppercase text-blue-700 bg-blue-100 px-3 py-1 rounded-full">دليل تفاعلي شامل</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3">
+          موسوعة إشارات المرور وقواعدها
+        </h2>
+        <p class="text-slate-600 mt-3 text-base">
+          تصفح الإشارات حسب صنفها أو ابحث بالاسم لمعرفة معناها الدقيق وكيفية التصرف الصحيح عند مصادفتها على الطريق.
+        </p>
+      </div>
+
+      <!-- أزرار الفلترة وشريط البحث السريع وعداد الإشارات -->
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-4 mb-8 bg-white p-4 rounded-2xl border border-slate-200 shadow-sm">
+        
+        <!-- أزرار التصنيف لكافة الأصناف -->
+        <div class="flex flex-wrap gap-1.5 justify-center">
+          <button data-filter="all" class="sign-filter-btn active px-3.5 py-2 rounded-xl text-xs font-bold transition bg-blue-700 text-white shadow-sm">
+            الكل
+          </button>
+          <button data-filter="danger" class="sign-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+            ⚠️ إشارات الخطر
+          </button>
+          <button data-filter="prohibition" class="sign-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+            ⛔ إشارات المنع
+          </button>
+          <button data-filter="end_prohibition" class="sign-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+            🚫 نهاية المنع
+          </button>
+          <button data-filter="obligation" class="sign-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+            🔵 إشارات الإجبار
+          </button>
+          <button data-filter="end_obligation" class="sign-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+            🔄 نهاية الإجبار
+          </button>
+          <button data-filter="indication" class="sign-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+            ℹ️ إشارات الإرشاد
+          </button>
+          <button data-filter="priority" class="sign-filter-btn px-3.5 py-2 rounded-xl text-xs font-bold transition bg-white text-slate-700 hover:bg-slate-100 border border-slate-200">
+            🛑 إشارات الأولويات
+          </button>
+        </div>
+
+        <!-- حقل البحث السريع وعداد الإشارات -->
+        <div class="flex items-center gap-3 w-full lg:w-auto justify-end">
+          <span id="signs-count-badge" class="hidden sm:inline-block bg-blue-50 text-blue-700 text-xs font-black px-3 py-2 rounded-xl border border-blue-200 whitespace-nowrap">
+            65+ إشارة
+          </span>
+          <div class="relative w-full sm:w-64">
+            <input type="text" id="signs-search" placeholder="ابحث عن أية إشارة..." class="w-full pl-4 pr-9 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs font-medium focus:outline-none focus:ring-2 focus:ring-blue-600 focus:bg-white transition">
+            <div class="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none text-slate-400">
+              🔍
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- شبكة عرض الإشارات -->
+      <div id="traffic-signs-container" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <!-- يتم التحميل ديناميكياً بواسطة main.js -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. الامتحان التجريبي التفاعلي لقانون المرور وكويز السلامة المرورية (Code & Safety Quiz) -->
+  <section id="code-quiz" class="py-20 bg-gradient-to-b from-slate-900 to-slate-950 text-white relative overflow-hidden">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      
+      <div class="text-center mb-8">
+        <span class="text-xs font-extrabold tracking-wider uppercase text-amber-400 bg-amber-400/10 border border-amber-400/20 px-3.5 py-1 rounded-full">تحدّ نفسك واختبر جاهزيتك</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-white mt-3">
+          الامتحان التجريبي وكويز السلامة المرورية
+        </h2>
+        <p class="text-slate-400 mt-2 text-sm max-w-xl mx-auto">
+          اختر نوع الاختبار وتدرّب على أسئلة قانون المرور النظري وقواعد السلامة والوقاية من الحوادث مع تصحيح فوري وشرح للقواعد.
+        </p>
+      </div>
+
+      <!-- أزرار تبديل أنماط الكويز (قانون المرور / السلامة المرورية / الشامل) -->
+      <div class="flex flex-wrap justify-center gap-2 mb-8 no-print">
+        <button data-mode="code" class="quiz-mode-btn active px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-black transition flex items-center gap-2 bg-amber-500 text-slate-950 shadow-lg">
+          <span>🚦</span>
+          <span>امتحان قانون المرور (Code)</span>
+        </button>
+        <button data-mode="safety" class="quiz-mode-btn px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-black transition flex items-center gap-2 bg-slate-800/80 text-slate-300 hover:bg-slate-700">
+          <span>🛡️</span>
+          <span>كويز السلامة المرورية (Sécurité)</span>
+        </button>
+        <button data-mode="all" class="quiz-mode-btn px-4 py-2.5 rounded-2xl text-xs sm:text-sm font-black transition flex items-center gap-2 bg-slate-800/80 text-slate-300 hover:bg-slate-700">
+          <span>🎯</span>
+          <span>الامتحان الشامل المدمج (Mix)</span>
+        </button>
+      </div>
+
+      <!-- البطاقة 1: بطاقة البداية والترحيب بالاختبار -->
+      <div id="quiz-intro-card" class="bg-slate-800/90 rounded-3xl p-8 sm:p-10 border border-slate-700 shadow-2xl text-center">
+        <div class="w-20 h-20 mx-auto rounded-3xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-4xl mb-6 shadow-inner">
+          🚦
+        </div>
+        <h3 id="quiz-intro-title" class="text-2xl font-black text-white mb-3">امتحان قانون المرور والأولويات (Test Code) 🚦</h3>
+        <p id="quiz-intro-desc" class="text-slate-300 text-sm leading-relaxed max-w-lg mx-auto mb-8">
+          يحتوي هذا الاختبار على أسئلة حقيقية تغطي أولويات التقاطعات، إشارات المرور، ومسارات الطرق. اختر الإجابة الأصح وسيقوم النظام بتصحيحها فوراً مع الشرح.
+        </p>
+        <button id="start-quiz-btn" class="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-slate-950 font-black px-8 py-4 rounded-2xl shadow-xl shadow-amber-500/20 transition transform hover:-translate-y-1 text-base">
+          ابدأ الاختبار الآن ➔
+        </button>
+      </div>
+
+      <!-- البطاقة 2: بطاقة الأسئلة النشطة (Active Quiz) -->
+      <div id="quiz-active-card" class="hidden bg-slate-800/90 rounded-3xl p-6 sm:p-8 border border-slate-700 shadow-2xl">
+        
+        <!-- الشريط العلوي للسؤال: العداد والتقدم -->
+        <div class="flex items-center justify-between mb-4">
+          <span id="quiz-badge" class="bg-blue-900/60 text-blue-300 border border-blue-700/50 text-xs font-bold px-3 py-1 rounded-full">
+            أولويات المرور
+          </span>
+          <span id="quiz-counter" class="text-xs font-mono font-bold text-slate-400">
+            السؤال 1 من 10
+          </span>
+        </div>
+
+        <!-- شريط التقدم -->
+        <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden mb-6">
+          <div id="quiz-progress-bar" class="bg-amber-400 h-full transition-all duration-300" style="width: 10%;"></div>
+        </div>
+
+        <!-- نص السؤال -->
+        <h3 id="quiz-question-text" class="text-lg sm:text-xl font-black text-white mb-6 leading-snug">
+          ...
+        </h3>
+
+        <!-- الرسم التوضيحي للسؤال -->
+        <div id="quiz-illustration-box" class="mb-6 p-4 bg-slate-900/80 rounded-2xl border border-slate-700/80 flex items-center justify-center">
+          <!-- محتوى الإشارة أو التقاطع -->
+        </div>
+
+        <!-- خيارات الإجابة -->
+        <div id="quiz-options-container" class="space-y-3 mb-6">
+          <!-- الخيارات تولد بالجافاسكربت -->
+        </div>
+
+        <!-- صندوق الشرح والتفسير بعد الإجابة -->
+        <div id="quiz-explanation-box" class="hidden p-4 rounded-2xl bg-slate-900/90 border border-blue-500/40 text-xs sm:text-sm text-slate-200 mb-6 flex items-start gap-3">
+          <span class="text-amber-400 text-lg">💡</span>
+          <div>
+            <strong class="text-amber-300 block mb-1">الشرح والقاعدة القانونية:</strong>
+            <p id="quiz-explanation-text" class="leading-relaxed"></p>
+          </div>
+        </div>
+
+        <!-- زر التالي -->
+        <div class="flex justify-end">
+          <button id="quiz-next-btn" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-black px-6 py-3 rounded-xl transition opacity-50 cursor-not-allowed">
+            السؤال التالي ➔
+          </button>
+        </div>
+
+      </div>
+
+      <!-- البطاقة 3: بطاقة النتيجة النهائية (Results Card) -->
+      <div id="quiz-results-card" class="hidden bg-slate-800/90 rounded-3xl p-8 sm:p-10 border border-slate-700 shadow-2xl text-center">
+        <div id="result-icon-container" class="mb-4">
+          <!-- يولد بالجافاسكربت -->
+        </div>
+        <h3 id="result-status-title" class="text-2xl font-black mb-2"></h3>
+        <p id="result-status-desc" class="text-slate-300 text-sm max-w-md mx-auto mb-6"></p>
+        
+        <div class="inline-flex items-center gap-6 bg-slate-900/80 border border-slate-700 p-4 rounded-2xl mb-8">
+          <div>
+            <span class="text-xs text-slate-400 block">عدد الإجابات الصحيحة:</span>
+            <span id="result-score-text" class="text-2xl font-black text-amber-400 font-mono"></span>
+          </div>
+          <div class="w-px h-10 bg-slate-700"></div>
+          <div>
+            <span class="text-xs text-slate-400 block">النسبة المئوية:</span>
+            <span id="result-percentage" class="text-2xl font-black text-emerald-400 font-mono"></span>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-4">
+          <button id="restart-quiz-btn" class="bg-slate-700 hover:bg-slate-600 text-white font-bold px-6 py-3 rounded-xl transition">
+            إعادة الاختبار 🔄
+          </button>
+          <a href="#registration-section" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-black px-7 py-3 rounded-xl transition shadow-lg shadow-amber-500/20">
+            سجل معنا لضمان النجاح من المرة الأولى 🚗
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 9. الوثائق المطلوبة للتسجيل (Dossier d'inscription) -->
+  <section id="dossier-section" class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-14">
+        <span class="text-xs font-extrabold tracking-wider uppercase text-blue-700 bg-blue-50 px-3 py-1 rounded-full">دليلك الإداري</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3">
+          ملف التسجيل في رخصة السياقة
+        </h2>
+        <p class="text-slate-600 mt-3 text-base">
+          قم بتحضير هذه الوثائق البسيطة لإيداع ملفك في إدارة المدرسة والانطلاق في دروسك فوراً.
+        </p>
+      </div>
+
+      <div class="bg-slate-50 rounded-3xl p-8 border border-slate-200/90 shadow-sm">
+        
+        <div class="grid sm:grid-cols-2 gap-6 mb-8">
+          
+          <div class="flex items-start gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-lg flex-shrink-0">
+              📸
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">4 صور شمسية حديثة</h4>
+              <p class="text-xs text-slate-500 mt-1">صور شخصية ملونة بخلفية بيضاء مطابقة للمواصفات الرسمية البيومترية.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center font-bold text-lg flex-shrink-0">
+              🪪
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">نسخة من بطاقة التعريف الوطنية</h4>
+              <p class="text-xs text-slate-500 mt-1">نسخة واضحة من بطاقة التعريف الوطنية البيومترية سارية المفعول.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-lg flex-shrink-0">
+              🩺
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">شهادة طبية خاصة برخصة السياقة</h4>
+              <p class="text-xs text-slate-500 mt-1">شهادة فحص طبي تثبت سلامة النظر والصحة العامة من طبيب معتمد ومؤهل.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-purple-100 text-purple-700 flex items-center justify-center font-bold text-lg flex-shrink-0">
+              🏠
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">شهادة إقامة (أو بطاقة إقامة)</h4>
+              <p class="text-xs text-slate-500 mt-1">شهادة تثبت مقر السكن سارية المفعول مسلمة من البلدية أو المصالح المختصة.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center font-bold text-lg flex-shrink-0">
+              📄
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">شهادة ميلاد (S12 أو عادية)</h4>
+              <p class="text-xs text-slate-500 mt-1">مستخرج شهادة الميلاد الخاص بالمترشح لإثبات السن القانوني.</p>
+            </div>
+          </div>
+
+          <div class="flex items-start gap-4 p-4 rounded-2xl bg-white border border-slate-100 shadow-sm">
+            <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold text-lg flex-shrink-0">
+              📮
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">طابع جبائي وظرفان بريديان</h4>
+              <p class="text-xs text-slate-500 mt-1">طابع جبائي رسمي خاص بملفات رخص السياقة مع أظرفة بريدية حاملة للطابع.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- شريط الطباعة والدعم -->
+        <div class="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-slate-200/80 no-print">
+          <div class="flex items-center gap-2 text-xs text-slate-600">
+            <span class="text-blue-600 font-bold">ملاحظة:</span>
+            <span>نساعدك في إدارة المدرسة على ملء استمارة المعلومات الرسمية مجاناً.</span>
+          </div>
+          <button onclick="window.print()" class="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white rounded-xl text-xs font-bold transition flex items-center gap-2 shadow">
+            <span>🖨️ طباعة قائمة الوثائق</span>
+          </button>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 10. باقات الأسعار والعروض (Pricing Packages) -->
+  <section id="packages" class="py-20 bg-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-extrabold tracking-wider uppercase text-blue-700 bg-blue-100 px-3 py-1 rounded-full">شفافية ومرونة في الدفع</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3">
+          باقات تدريب متكاملة تناسب ميزانيتك
+        </h2>
+        <p class="text-slate-600 mt-3 text-base">
+          أسعار واضحة بدون أية رسوم خفية، مع إمكانية الدفع بالتقسيط المريح على دفعات ميسرة.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8 items-stretch">
+        
+        <!-- الباقة الأساسية -->
+        <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm flex flex-col justify-between hover-lift">
+          <div>
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-xl font-black text-slate-900">الباقة الأساسية</h3>
+              <span class="text-xs bg-slate-100 text-slate-700 font-bold px-2.5 py-1 rounded-lg">Standard</span>
+            </div>
+            <p class="text-xs text-slate-500 mb-6">الخيار الاقتصادي المثالي للطلاب والمبتدئين الراغبين في تكوين نظامي متكامل.</p>
+            <div class="mb-6 pb-6 border-b border-slate-100">
+              <span class="text-3xl font-black text-slate-900 font-mono">سعر تفضيلي</span>
+              <span class="text-xs text-slate-500 block mt-1">مع إمكانية الدفع على دفعتين</span>
+            </div>
+            <ul class="space-y-3 text-xs font-semibold text-slate-700">
+              <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> حصص قانون المرور (Code) غير محدودة</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> ساعات السياقة القانونية المعتمدة كاملة</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> تدريب مكثف على المناورات والكرينو</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> مرافقة رسمية في يوم الامتحان</li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4">
+            <button onclick="selectLicenseForBooking('الباقة الأساسية')" class="w-full bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold py-3 rounded-xl transition text-center">
+              اختر هذه الباقة
+            </button>
+          </div>
+        </div>
+
+        <!-- الباقة الذهبية الشاملة - مميزة -->
+        <div class="bg-white rounded-3xl p-8 border-2 border-blue-600 shadow-2xl relative flex flex-col justify-between hover-lift">
+          <div class="absolute -top-3.5 right-1/2 transform translate-x-1/2 bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 text-xs font-black px-4 py-1 rounded-full shadow">
+            الأكثر ترشيحاً للنجاح السريع ⭐
+          </div>
+          <div>
+            <div class="flex justify-between items-center mb-4 mt-2">
+              <h3 class="text-xl font-black text-slate-900">الباقة الذهبية VIP</h3>
+              <span class="text-xs bg-amber-100 text-amber-800 font-bold px-2.5 py-1 rounded-lg">Confort VIP</span>
+            </div>
+            <p class="text-xs text-slate-500 mb-6">تكوين مخصص بالكامل مع ساعات قيادة مرنة ومرافقة فردية تضمن أقصى جاهزية.</p>
+            <div class="mb-6 pb-6 border-b border-slate-100">
+              <span class="text-3xl font-black text-blue-700 font-mono">باقة التميز</span>
+              <span class="text-xs text-slate-500 block mt-1">مرونة دفع مريحة على 3 أقساط</span>
+            </div>
+            <ul class="space-y-3 text-xs font-semibold text-slate-700">
+              <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> جميع مزايا الباقة الأساسية</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> +5 ساعات سياقة إضافية مجانية في الطريق</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> حرية اختيار مواعيد الحصص الصباحية أو المسائية</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> إمكانية التدريب على سيارة أوتوماتيك</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> إعادة الامتحان مجاناً في حال التعثر (لا قدّر الله)</li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4">
+            <button onclick="selectLicenseForBooking('الباقة الذهبية VIP')" class="w-full bg-blue-700 hover:bg-blue-800 text-white font-black py-3.5 rounded-xl transition text-center shadow-lg shadow-blue-700/25">
+              احجز الباقة الذهبية
+            </button>
+          </div>
+        </div>
+
+        <!-- الباقة المكثفة السريعة -->
+        <div class="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm flex flex-col justify-between hover-lift">
+          <div>
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-xl font-black text-slate-900">الباقة المكثفة السريعة</h3>
+              <span class="text-xs bg-purple-100 text-purple-700 font-bold px-2.5 py-1 rounded-lg">Accéléré</span>
+            </div>
+            <p class="text-xs text-slate-500 mb-6">لأصحاب المواعيد المحدودة والمغتربين أو المقبلين على سفر أو عمل عاجل.</p>
+            <div class="mb-6 pb-6 border-b border-slate-100">
+              <span class="text-3xl font-black text-slate-900 font-mono">تكوين سريع</span>
+              <span class="text-xs text-slate-500 block mt-1">إنهاء التكوين في مدة قياسية</span>
+            </div>
+            <ul class="space-y-3 text-xs font-semibold text-slate-700">
+              <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> حصص سياقة يومية متتالية مكثفة</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> أولوية حجز مواعيد الامتحان الرسمي</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> مدرب خاص مفرّغ للمترشح</li>
+              <li class="flex items-center gap-2"><span class="text-emerald-500">✓</span> مراجعة مركزة لجميع مسارات الامتحان</li>
+            </ul>
+          </div>
+          <div class="mt-8 pt-4">
+            <button onclick="selectLicenseForBooking('الباقة المكثفة السريعة')" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition text-center">
+              اختر الباقة السريعة
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 11. استمارة التسجيل وحجز الموعد أونلاين (Online Registration) -->
+  <section id="registration-section" class="py-20 bg-white relative">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900 rounded-3xl p-8 sm:p-12 text-white shadow-2xl border border-slate-700">
+        
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <span class="text-xs font-bold text-amber-400 bg-amber-400/10 border border-amber-400/20 px-3 py-1 rounded-full">ابدأ رحلتك الآن</span>
+          <h2 class="text-3xl sm:text-4xl font-black text-white mt-3">
+            استمارة حجز موعد والتسجيل الأولي
+          </h2>
+          <p class="text-slate-300 text-sm mt-2">
+            املأ البيانات وسيقوم فريقنا بالتواصل معك لتأكيد موعدك وإرشادك في إيداع الملف. يمكنك أيضاً الإرسال مباشرة عبر الواتساب بنقرة واحدة!
+          </p>
+        </div>
+
+        <form id="registration-form" class="space-y-6">
+          
+          <div class="grid sm:grid-cols-2 gap-6">
+            
+            <div>
+              <label for="reg-name" class="block text-xs font-bold text-slate-300 mb-2">الاسم الكامل *</label>
+              <input type="text" id="reg-name" required placeholder="مثلاً: محمد بلقاسم" class="w-full px-4 py-3 bg-slate-800/80 border border-slate-600 rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-400 transition">
+            </div>
+
+            <div>
+              <label for="reg-phone" class="block text-xs font-bold text-slate-300 mb-2">رقم الهاتف للتواصل *</label>
+              <input type="tel" id="reg-phone" required placeholder="مثلاً: 0555 12 34 56" class="w-full px-4 py-3 bg-slate-800/80 border border-slate-600 rounded-xl text-sm text-white font-mono focus:outline-none focus:ring-2 focus:ring-amber-400 transition">
+            </div>
+
+          </div>
+
+          <div class="grid sm:grid-cols-3 gap-6">
+            
+            <div>
+              <label for="reg-license" class="block text-xs font-bold text-slate-300 mb-2">صنف الرخصة المطلوب *</label>
+              <select id="reg-license" class="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-400 transition">
+                <option value="صنف (ب) - سيارات خفيفة B">صنف (ب) - سيارات سياحية B</option>
+                <option value="صنف (أ) - دراجات نارية A">صنف (أ) - دراجات نارية A</option>
+                <option value="صنف (ج) - الوزن الثقيل C">صنف (ج) - الوزن الثقيل C</option>
+                <option value="صنف (د) - نقل المسافرين D">صنف (د) - نقل جماعي D</option>
+                <option value="صنف (هـ) - مقطورات E">صنف (هـ) - مقطورات E</option>
+                <option value="دورة صقل المهارات والتحسين">دورة صقل مهارات (Perfectionnement)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="reg-course" class="block text-xs font-bold text-slate-300 mb-2">نوع الباقة أو التكوين</label>
+              <select id="reg-course" class="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-400 transition">
+                <option value="الباقة الأساسية (Standard)">الباقة الأساسية (Standard)</option>
+                <option value="الباقة الذهبية VIP (Confort)">الباقة الذهبية VIP</option>
+                <option value="الباقة المكثفة السريعة (Accéléré)">الباقة المكثفة السريعة</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="reg-shift" class="block text-xs font-bold text-slate-300 mb-2">الفترة المفضلة للحصص</label>
+              <select id="reg-shift" class="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-400 transition">
+                <option value="الفترة الصباحية (08:00 - 12:00)">الفترة الصباحية (08:00 - 12:00)</option>
+                <option value="فترة ما بعد الظهيرة (13:00 - 16:30)">فترة ما بعد الظهيرة (13:00 - 16:30)</option>
+                <option value="الفترة المسائية (16:30 - 18:30)">الفترة المسائية (16:30 - 18:30)</option>
+                <option value="عطلة نهاية الأسبوع (الجمعة / السبت)">عطلة نهاية الأسبوع</option>
+              </select>
+            </div>
+
+          </div>
+
+          <div>
+            <label for="reg-branch" class="block text-xs font-bold text-slate-300 mb-2">فرع المدرسة المفضل</label>
+            <input type="text" id="reg-branch" placeholder="الفرع الرئيسي أو أقرب نقطة لك" value="الفرع الرئيسي - مقابل محطة الترامواي" class="w-full px-4 py-3 bg-slate-800/80 border border-slate-600 rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-400 transition">
+          </div>
+
+          <div>
+            <label for="reg-notes" class="block text-xs font-bold text-slate-300 mb-2">ملاحظات أو استفسارات إضافية</label>
+            <textarea id="reg-notes" rows="2" placeholder="هل تفضل مدرباً معيناً أو سيارة أوتوماتيك أو لديك متطلبات خاصة؟" class="w-full px-4 py-3 bg-slate-800/80 border border-slate-600 rounded-xl text-sm text-white focus:outline-none focus:ring-2 focus:ring-amber-400 transition"></textarea>
+          </div>
+
+          <!-- أزرار الإرسال المزدوجة -->
+          <div class="grid sm:grid-cols-2 gap-4 pt-4">
+            
+            <!-- زر إرسال مباشر للواتساب -->
+            <button type="button" id="submit-whatsapp-btn" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-black py-3.5 px-6 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-600/30">
+              <span class="text-xl">💬</span>
+              <span>إرسال فوري عبر واتساب</span>
+            </button>
+
+            <!-- زر تأكيد الطلب المباشر -->
+            <button type="submit" id="submit-direct-btn" class="w-full bg-amber-500 hover:bg-amber-600 text-slate-950 font-black py-3.5 px-6 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-amber-500/25">
+              <span>تأكيد الحجز والتسجيل</span>
+              <span>➔</span>
+            </button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 12. آراء وشهادات المتدربين (Testimonials) -->
+  <section class="py-20 bg-slate-50 border-t border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-extrabold tracking-wider uppercase text-blue-700 bg-blue-100 px-3 py-1 rounded-full">قصص نجاح حقيقية</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-3">
+          ماذا يقول خريجونا الناجحون؟
+        </h2>
+        <p class="text-slate-600 mt-3 text-base">
+          فخورون بآلاف السائقين الذين تدربوا معنا ويقودون اليوم في الطرقات بكل أمان وثقة.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        
+        <div class="bg-white rounded-2xl p-7 border border-slate-200/80 shadow-sm hover-lift">
+          <div class="flex items-center gap-1 text-amber-400 mb-4 text-sm">
+            ★★★★★
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+            "كنت أعاني من خوف شديد من السياقة والزحام، لكن بفضل صبر وتشجيع المدرب في مدرسة الأمان، تعلمت التحكم التام بالسيارة ونجحت في امتحان الكود والكرينو والسيركوي من المرة الأولى!"
+          </p>
+          <div class="flex items-center gap-3 border-t border-slate-100 pt-4">
+            <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-700 font-bold flex items-center justify-center text-sm">
+              س.م
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">سارة مهدي</h4>
+              <span class="text-[11px] text-slate-500">حاصلة على صنف (ب) - سيارات</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-7 border border-slate-200/80 shadow-sm hover-lift">
+          <div class="flex items-center gap-1 text-amber-400 mb-4 text-sm">
+            ★★★★★
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+            "المدرسة مجهزة بأحدث الوسائل، وشاشات دروس الكود سهلت علي حفظ إشارات المرور والأولويات في وقت قياسي. السيارات نظيفة ومكيفة والمواعيد مضبوطة بدقة."
+          </p>
+          <div class="flex items-center gap-3 border-t border-slate-100 pt-4">
+            <div class="w-10 h-10 rounded-full bg-amber-100 text-amber-700 font-bold flex items-center justify-center text-sm">
+              ك.ع
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">كريم عمراني</h4>
+              <span class="text-[11px] text-slate-500">حاصل على صنف (ب) - الباقة السريعة</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl p-7 border border-slate-200/80 shadow-sm hover-lift">
+          <div class="flex items-center gap-1 text-amber-400 mb-4 text-sm">
+            ★★★★★
+          </div>
+          <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+            "سجلت لديهم في رخصة الوزن الثقيل (صنف ج) وحصلت عليها بسهولة بفضل الشاحنات الممتازة والمدرب الذي كان يعلمنا كل أسرار المناورات والتوقف في المنحدرات."
+          </p>
+          <div class="flex items-center gap-3 border-t border-slate-100 pt-4">
+            <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 font-bold flex items-center justify-center text-sm">
+              ر.ب
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 text-sm">رضا بن عيسى</h4>
+              <span class="text-[11px] text-slate-500">حاصل على صنف (ج) - شاحنات الوزن الثقيل</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 13. الأسئلة الشائعة (FAQ) -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-2xl mx-auto mb-14">
+        <span class="text-xs font-extrabold tracking-wider uppercase text-blue-700 bg-blue-50 px-3 py-1 rounded-full">إجابات واضحة</span>
+        <h2 class="text-3xl font-black text-slate-900 mt-3">الأسئلة الأكثر شيوعاً</h2>
+        <p class="text-slate-600 text-sm mt-2">كل ما يدور في ذهنك حول رخصة السياقة وإجراءاتها.</p>
+      </div>
+
+      <div class="space-y-4">
+        
+        <div class="faq-item bg-slate-50 rounded-2xl border border-slate-200/90 overflow-hidden">
+          <button class="faq-question w-full p-5 text-right font-bold text-slate-900 flex justify-between items-center text-sm sm:text-base">
+            <span>كم تدوم فترة التكوين للحصول على رخصة السياقة صنف (ب)؟</span>
+            <span class="faq-icon text-slate-400 transition-transform duration-300">▼</span>
+          </button>
+          <div class="faq-answer hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+            تستغرق الدورة العادية في المتوسط بين 4 إلى 8 أسابيع حسب وتيرة حضور المتدرب ومواعيد الامتحانات التي تحددها مصالح الدائرة / الولاية. كما نوفر باقة مكثفة تتيح إنهاء الحصص النظرية والتطبيقية في وقت أقصر للمستعجلين.
+          </div>
+        </div>
+
+        <div class="faq-item bg-slate-50 rounded-2xl border border-slate-200/90 overflow-hidden">
+          <button class="faq-question w-full p-5 text-right font-bold text-slate-900 flex justify-between items-center text-sm sm:text-base">
+            <span>هل يمكنني دفع تكاليف التكوين بالتقسيط؟</span>
+            <span class="faq-icon text-slate-400 transition-transform duration-300">▼</span>
+          </button>
+          <div class="faq-answer hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+            نعم بالتأكيد! توفر مدرسة الأمان إمكانية تقسيط المبلغ على مرحلتين أو ثلاث مراحل: دفعة أولى عند إيداع الملف وبدء دروس الكود، ودفعة ثانية عند بدء التطبيقي، والدفعة الأخيرة قبل موعد الامتحان النهائي.
+          </div>
+        </div>
+
+        <div class="faq-item bg-slate-50 rounded-2xl border border-slate-200/90 overflow-hidden">
+          <button class="faq-question w-full p-5 text-right font-bold text-slate-900 flex justify-between items-center text-sm sm:text-base">
+            <span>هل تتوفر لديكم مدربات إناث لتدريب النساء؟</span>
+            <span class="faq-icon text-slate-400 transition-transform duration-300">▼</span>
+          </button>
+          <div class="faq-answer hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+            نعم، نوفر مدربات معتمدات وذوات خبرة عالية لمن تفضل التدرب مع مدربة أنثى في جو من الراحة والاطمئنان التام.
+          </div>
+        </div>
+
+        <div class="faq-item bg-slate-50 rounded-2xl border border-slate-200/90 overflow-hidden">
+          <button class="faq-question w-full p-5 text-right font-bold text-slate-900 flex justify-between items-center text-sm sm:text-base">
+            <span>ماذا يحدث إذا رسبت في أحد الامتحانات (الكود أو المناورات)؟</span>
+            <span class="faq-icon text-slate-400 transition-transform duration-300">▼</span>
+          </button>
+          <div class="faq-answer hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+            في حال عدم التوفيق في مرحلة ما، يتم تحديد جلسات مراجعة إضافية لمعالجة الأخطاء التي وقعت فيها، ثم إعادة برمجتك في الدورة الموالية للامتحان (عادة بعد 15 يوماً إلى شهر) دون الحاجة لإعادة المراحل التي نجحت فيها سابقاً.
+          </div>
+        </div>
+
+        <div class="faq-item bg-slate-50 rounded-2xl border border-slate-200/90 overflow-hidden">
+          <button class="faq-question w-full p-5 text-right font-bold text-slate-900 flex justify-between items-center text-sm sm:text-base">
+            <span>هل تدرّبون على السيارات الأوتوماتيكية (Boîte Automatique)؟</span>
+            <span class="faq-icon text-slate-400 transition-transform duration-300">▼</span>
+          </button>
+          <div class="faq-answer hidden px-5 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100 pt-3">
+            نعم، أسطولنا يتضمن سيارات مجهزة بناقل حركة أوتوماتيكي حديث لمن يرغب في رخصة خاصة بالسيارات الأوتوماتيكية أو لمن يريد حصص صقل مهارات عليها.
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 14. معلومات الاتصال والخريطة (Contact & Location) -->
+  <section id="contact" class="py-20 bg-slate-900 text-white relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid lg:grid-cols-12 gap-12">
+        
+        <!-- تفاصيل العنوان والاتصال -->
+        <div class="lg:col-span-6 space-y-8">
+          <div>
+            <span class="text-xs font-bold text-amber-400 bg-amber-400/10 border border-amber-400/20 px-3 py-1 rounded-full">نحن في خدمتكم دائماً</span>
+            <h2 class="text-3xl sm:text-4xl font-black text-white mt-3">تواصل معنا أو زرنا في مقر المدرسة</h2>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">
+              يسعدنا استقبالك والإجابة عن كافة تساؤلاتك ومساعدتك في تجهيز ملف رخصة السياقة.
+            </p>
+          </div>
+
+          <div class="space-y-4 text-sm">
+            
+            <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-800/80 border border-slate-700">
+              <div class="w-12 h-12 rounded-xl bg-blue-600/20 text-blue-400 flex items-center justify-center text-xl">
+                📍
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block">عنوان المقر:</span>
+                <span class="font-bold text-white">شارع الاستقلال، مقابل محطة الترامواي الرئيسية، الجزائر العاصمة</span>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-800/80 border border-slate-700">
+              <div class="w-12 h-12 rounded-xl bg-emerald-600/20 text-emerald-400 flex items-center justify-center text-xl">
+                📞
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block">الهاتف المباشر والواتساب:</span>
+                <a href="tel:+213555123456" class="font-bold text-amber-400 hover:underline font-mono text-base">0555 12 34 56</a>
+                <span class="text-slate-500 mx-2">/</span>
+                <a href="tel:+21321123456" class="font-bold text-slate-300 hover:underline font-mono">021 12 34 56</a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4 p-4 rounded-2xl bg-slate-800/80 border border-slate-700">
+              <div class="w-12 h-12 rounded-xl bg-purple-600/20 text-purple-400 flex items-center justify-center text-xl">
+                🕒
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block">ساعات العمل:</span>
+                <span class="font-bold text-white">السبت إلى الخميس: 08:00 صباحاً - 18:30 مساءً</span>
+                <span class="block text-xs text-amber-400 mt-0.5">الجمعة: حصص نظرية خاصة بالمترشحين</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- بطاقات العمل المباشر -->
+          <div class="flex gap-4">
+            <a href="https://wa.me/213555123456" target="_blank" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 px-4 rounded-xl text-center text-xs transition flex items-center justify-center gap-2">
+              <span>تحدث مع الإدارة عبر واتساب</span>
+            </a>
+            <a href="tel:+213555123456" class="flex-1 bg-slate-800 hover:bg-slate-700 text-white font-bold py-3.5 px-4 rounded-xl text-center text-xs transition border border-slate-700 flex items-center justify-center gap-2">
+              <span>اتصال هاتفي سريع</span>
+            </a>
+          </div>
+
+        </div>
+
+        <!-- معاينة الموقع والخريطة التفاعلية -->
+        <div class="lg:col-span-6">
+          <div class="bg-slate-800 rounded-3xl p-4 border border-slate-700 shadow-2xl h-full flex flex-col justify-between">
+            <div class="relative w-full h-80 bg-slate-900 rounded-2xl overflow-hidden flex items-center justify-center border border-slate-700">
+              <!-- رسم تخطيطي عالي الجودة للخريطة والموقع -->
+              <div class="text-center p-6 space-y-3">
+                <div class="w-16 h-16 rounded-full bg-blue-600/20 border border-blue-500/30 text-blue-400 flex items-center justify-center text-3xl mx-auto shadow-inner animate-bounce">
+                  📍
+                </div>
+                <h4 class="text-lg font-black text-white">موقع مدرسة الأمان لتعليم السياقة</h4>
+                <p class="text-xs text-slate-400 max-w-xs mx-auto">
+                  شارع الاستقلال، محطة الترامواي • سهولة الوصول عبر مختلف وسائل النقل العمومي
+                </p>
+                <a href="https://maps.google.com" target="_blank" id="map-direct-link" data-school-map class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold px-4 py-2 rounded-xl transition shadow">
+                  <span>فتح في تطبيق خرائط Google Maps</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+            <div class="mt-4 p-4 bg-slate-900/60 rounded-xl flex items-center justify-between text-xs text-slate-400">
+              <span>🚗 مواقف سيارات متوفرة للزوار</span>
+              <span>🚊 على بعد 50 متراً من الترامواي</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 15. تذييل الصفحة (Footer) -->
+  <footer class="bg-slate-950 text-slate-400 text-xs py-12 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        
+        <!-- عن المدرسة -->
+        <div class="space-y-3">
+          <div class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-xl bg-blue-700 flex items-center justify-center text-white font-black text-sm">أ</div>
+            <span class="text-base font-black text-white" data-school-name>مدرسة الأمان</span>
+          </div>
+          <p class="text-slate-400 leading-relaxed">
+            مدرسة رائدة في التكوين لجميع رخص السياقة معتمدة رسمياً. هدفنا غرس ثقافة القيادة الآمنة والمسؤولة.
+          </p>
+
+          <!-- روابط حسابات التواصل الاجتماعي في التذييل -->
+          <div class="flex items-center gap-2 pt-2">
+            <a href="https://facebook.com" target="_blank" data-social="facebook" class="w-7 h-7 rounded-lg bg-slate-900 hover:bg-blue-600 text-white flex items-center justify-center transition border border-slate-800" title="فيسبوك">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" data-social="instagram" class="w-7 h-7 rounded-lg bg-slate-900 hover:bg-pink-600 text-white flex items-center justify-center transition border border-slate-800" title="إنستغرام">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </a>
+            <a href="https://tiktok.com" target="_blank" data-social="tiktok" class="w-7 h-7 rounded-lg bg-slate-900 hover:bg-black text-white flex items-center justify-center transition border border-slate-800" title="تيك توك">
+              <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.298-.002.595.042.88.13V9.4a6.33 6.33 0 0 0-1-.08A6.34 6.34 0 0 0 3 15.66a6.34 6.34 0 0 0 10.83 4.47 6.27 6.27 0 0 0 1.84-4.47V8.75a8.28 8.28 0 0 0 4.92 1.62V6.92a4.8 4.8 0 0 1-1-.23z"/></svg>
+            </a>
+            <a href="https://wa.me/213555123456" target="_blank" data-social="whatsapp" class="w-7 h-7 rounded-lg bg-slate-900 hover:bg-emerald-600 text-white flex items-center justify-center transition border border-slate-800" title="واتساب">
+              <span class="text-xs">💬</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- روابط سريعة -->
+        <div>
+          <h4 class="font-bold text-white text-sm mb-3">روابط سريعة</h4>
+          <ul class="space-y-2">
+            <li><a href="#about" class="hover:text-amber-400 transition">عن المدرسة وميزاتنا</a></li>
+            <li><a href="#licenses" class="hover:text-amber-400 transition">أصناف رخص السياقة</a></li>
+            <li><a href="#phases" class="hover:text-amber-400 transition">مراحل التدريب الثلاث</a></li>
+            <li><a href="#code-quiz" class="hover:text-amber-400 transition">امتحان الكود التجريبي</a></li>
+            <li><a href="#dossier-section" class="hover:text-amber-400 transition">وثائق ملف التسجيل</a></li>
+          </ul>
+        </div>
+
+        <!-- أصناف الرخص -->
+        <div>
+          <h4 class="font-bold text-white text-sm mb-3">أصناف الرخص</h4>
+          <ul class="space-y-2">
+            <li><a href="#licenses" class="hover:text-amber-400 transition">صنف ب (Permis B - سيارات)</a></li>
+            <li><a href="#licenses" class="hover:text-amber-400 transition">صنف أ (Permis A - دراجات)</a></li>
+            <li><a href="#licenses" class="hover:text-amber-400 transition">صنف ج (Permis C - وزن ثقيل)</a></li>
+            <li><a href="#licenses" class="hover:text-amber-400 transition">صنف د (Permis D - حافلات)</a></li>
+            <li><a href="#licenses" class="hover:text-amber-400 transition">دورة صقل المهارات</a></li>
+          </ul>
+        </div>
+
+        <!-- نصائح السلامة المرورية -->
+        <div>
+          <h4 class="font-bold text-white text-sm mb-3">نصيحة الأمان الذهبية</h4>
+          <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 text-slate-300 leading-relaxed text-[11px]">
+            "السرعة توفر دقائق وقد تسرق حياة. احترم مسافة الأمان، وتذكر أن حزام الأمان هو خط دفاعك الأول دائماً."
+          </div>
+        </div>
+
+      </div>
+
+      <div class="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-right">
+        <p>© 2026 <span data-school-name>مدرسة الأمان لتعليم السياقة</span> (Auto-École Al-Aman). جميع الحقوق محفوظة.</p>
+        <div class="flex flex-wrap items-center justify-center gap-4 text-slate-500">
+          <span>رخصة رقم: 2026/DZ/458</span>
+          <span>•</span>
+          <a href="#registration-section" class="text-amber-400 hover:underline">التسجيل أونلاين</a>
+          <span>•</span>
+          <a href="admin.html" target="_blank" class="text-slate-300 hover:text-amber-400 transition flex items-center gap-1 font-bold bg-slate-900 hover:bg-slate-850 border border-slate-800 px-3 py-1 rounded-lg">
+            <span>🔐 لوحة تحكم صاحب المدرسة</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- 16. نافذة تأكيد الحجز المنبثقة (Success Modal) -->
+  <div id="booking-success-modal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-sm">
+    <div class="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl text-center transform transition-all border border-slate-100">
+      <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-4 shadow-inner">
+        ✓
+      </div>
+      <h3 class="text-2xl font-black text-slate-900 mb-2">تم تسجيل طلبك بنجاح!</h3>
+      <p class="text-sm text-slate-600 mb-4 leading-relaxed">
+        شكراً لك يا <strong id="modal-user-name" class="text-blue-700"></strong> على ثقتك بمدرسة الأمان! تم حجز طلبك في <strong id="modal-license-type" class="text-slate-800"></strong>.
+      </p>
+      <div class="bg-slate-50 p-3 rounded-xl border border-slate-200 text-xs text-slate-500 mb-6 text-right">
+        📌 سنتصل بك هاتفياً خلال ساعات العمل لتأكيد تفاصيل الموعد وتجهيز ملفك الإداري.
+      </div>
+      <button onclick="closeSuccessModal()" class="w-full bg-slate-900 hover:bg-slate-800 text-white font-bold py-3 rounded-xl transition">
+        إغلاق والمتابعة
+      </button>
+    </div>
+  </div>
+
+  <!-- 17. الأزرار العائمة (Floating Action Buttons) -->
+  <!-- زر الواتساب العائم مع تأثير النبض -->
+  <a href="https://wa.me/213555123456?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%D8%8C%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%A7%D9%84%D8%AA%D8%B3%D8%AC%D9%8A%D9%84%20%D9%81%D9%8A%20%D9%85%D8%AF%D8%B1%D8%B3%D8%A9%20%D8%AA%D8%B9%D9%84%D9%8A%D9%85%20%D8%A7%D9%84%D8%B3%D9%8A%D8%A7%D9%82%D8%A9" target="_blank" class="fixed bottom-6 left-6 z-40 w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full flex items-center justify-center text-3xl shadow-2xl transition transform hover:scale-110 pulse-animation" title="تواصل معنا عبر واتساب">
+    💬
+  </a>
+
+  <!-- زر الصعود للأعلى (Back to top) -->
+  <button id="back-to-top-btn" class="fixed bottom-6 right-6 z-40 w-11 h-11 bg-slate-800/90 hover:bg-slate-900 text-white rounded-full flex items-center justify-center text-sm shadow-xl transition-all duration-300 opacity-0 pointer-events-none border border-slate-700" title="الرجوع للأعلى">
+    ▲
+  </button>
+
+  <!-- استدعاء ملفات الجافاسكربت -->
+  <script src="js/quiz-data.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
